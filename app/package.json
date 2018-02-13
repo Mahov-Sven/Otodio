@@ -1,0 +1,25 @@
+{
+  "name": "otodio",
+  "version": "1.0.0",
+  "description": "CSCE 378",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "*",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mahov-Sven/Otodio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mahov-Sven/Otodio/issues"
+  },
+  "homepage": "https://github.com/Mahov-Sven/Otodio#readme"
+}
