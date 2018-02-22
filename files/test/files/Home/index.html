@@ -1,6 +1,6 @@
 <div id="CONTENT">
 	<div id="PAGE">
-		<div class="Text Title">Welcome to the Home Page</div>
+		<div class="Title">Welcome to the Home Page</div>
 		<div class="Line"></div>
 		<div class="Spacer"></div>
 		<div class="Spacer"></div>
@@ -9,55 +9,202 @@
 		</div>
 		<div class="Spacer"></div>
 		<div class="Spacer"></div>
-		
-		<div id="HEADING_GLOSSARY" class="Text Heading">Glossary</div>
+
+		<div id="HEADING_GLOSSARY" class="Heading">Glossary</div>
 		<div class="Line"></div>
 		<div class="Spacer"></div>
-		<a class="Link" href="#HEADING_CREATE_PAGE">How to Create You're Own Page</a>
+		<ul class="Hierarchy">
+			<li><a class="Link" href="#HEADING_CREATE_PAGE">Create Your
+					Own Page</a>
+			<li><a class="Link" href="#HEADING_EDIT_PAGE">Edit Your Page</a>
+			<li><a class="Link" href="#HEADING_TUTORIALS">Tutorials</a>
+			<li>
+				<ul class="Hierarchy">
+					<li><a class="Link" href="#HEADING_TUTORIAL_HTML">Basic
+							HTML</a>
+					<li><a class="Link" href="#HEADING_TUTORIAL_CSS">Basic CSS</a>
+					<li><a class="Link" href="#HEADING_TUTORIAL_JS">Basic JS</a>
+					<li><a class="Link" href="#HEADING_TUTORIAL_FRAGMENTS">HTML
+							Fragments</a>
+				</ul>
+			</li>
+		</ul>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
 		<div class="Spacer"></div>
 		<div class="Spacer"></div>
 
-		<div id="HEADING_CREATE_PAGE" class="Text Heading">How to Create You're Own Page</div>
+		<div id="HEADING_CREATE_PAGE" class="Heading">How to Create Your
+			Own Page</div>
 		<div class="Line"></div>
 		<div class="Spacer"></div>
 		<div class="Text">
 			In order to create a test page of your own, you will have to follow
-			the following steps.
+			the following steps:
 			<ol class="List">
-				<li>Fork the repository on GitHub, or if you are a member of
-					the team, clone the repository.
-				<li>Once forked, add a directory with the title of your test
-					page at 'files/test/files/[PAGE_TITLE]'
-				<li>Within that directory add an 'index.html' file, a
-					'script.js' file, and a 'style.css' file
-				<li>In the 'Main.js' file located at
-					'files/test/scripts/Main.js' add the following line after the last
-					one like it: 'Main_createTab("[PAGE_TITLE]",
-					"files/[PAGE_TITLE]");'
+				<li class="ListElement">Fork the repository on GitHub, or if
+					you are a member of the team, clone the repository.
+				<li class="ListElement">Once forked, add a directory with the
+					title of your test page at
+					<div class="String">files/test/files/[PAGE_TITLE]</div>
+				<li class="ListElement">Within that directory add an
+					<div class="String">index.html</div> file, a
+					<div class="String">script.js</div> file, and a
+					<div class="String">style.css</div> file
+				<li class="ListElement">In the
+					<div class="String">Main.js</div> file located at
+					<div class="String">files/test/scripts/Main.js</div> add the
+					following line after the last one like it:
+					<div class="Code">Main_createTab("[PAGE_TITLE]",
+						"files/[PAGE_TITLE]");</div>
 			</ol>
 			<div class="Spacer"></div>
 			Your tab should now be setup and will show on the test page at
-			'localhost/files/test/'. In order to make changes to your website you
-			can edit the following files:
+			<div class="String">localhost/files/test/</div>
+			. In order to make changes to your website you can edit the following
+			files:
 			<ul class="List">
-				<li>index.html: holds the test HTML content for whatever you're
-					working on. It is injected into the page after the HTML.
-				<li>style.css: holds the test CSS content for whatever you're
-					working on. It is injected into the page directly after the HTML.
-				<li>script.js: holds the test JavaScript content for whatever
-					you're working on. It is injected into the page (and not cleaned)
-					directly after the style.css.
+				<li class="ListElement"><div class="String">style.css</div>:
+					holds the test CSS content for whatever you're working on.
+				<li class="ListElement"><div class="String">index.html</div>:
+					holds the test HTML content for whatever you're working on. It is
+					injected into the page directly after the CSS.
+				<li class="ListElement"><div class="String">script.js</div>:
+					holds the test JavaScript content for whatever you're working on.
+					It is injected into the page (and not cleaned) directly after the
+					style.css.
 			</ul>
 			<div class="Spacer"></div>
 			Even though the connection between them is not directly evident (you
-			don't actually add the script tags to your HTML file to put it in),
-			it might seem a little difficult to understand, but know that under
-			the hood, there is already a system put in place to get your HTML,
-			CSS and JavaScript files when you open your tab and then inject them
-			separately, but in order. Additionally, since none of these files are
-			cleaned, please make sure that you do not put any malicious JS code
-			into yoru file. Any malicious JS code found will not be allowed to be
-			merged into the main branch anyway.
+			don't actually add the script tags to your HTML file to put your JS
+			file in), but know under the hood, there is already a system put in
+			place to retrieve your HTML, CSS and JavaScript files when you open
+			your tab and then inject them into this page's content. Since none of
+			these files are cleaned, please make sure that you do not put any
+			malicious JS code into your file. Any malicious JS code found will
+			not be allowed to be merged into the main branch anyway.
 		</div>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>
+
+		<div id="HEADING_EDIT_PAGE" class="Heading">How to Edit Your
+			Page</div>
+		<div class="Line"></div>
+		<div class="Spacer"></div>
+		<div class="Text">There is currently no information about this
+			topic available.</div>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>
+
+		<div id="HEADING_TUTORIALS" class="Heading">Tutorials</div>
+		<div class="Line"></div>
+		<div class="Spacer"></div>
+		<div class="Text">There is currently no information about this
+			topic available.</div>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>
+
+		<div id="HEADING_TUTORIAL_HTML" class="Heading">Tutorial:
+			Understanding Basic HTML</div>
+		<div class="Line"></div>
+		<div class="Spacer"></div>
+		<div class="Text">There is currently no information about this
+			topic available.</div>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>
+
+		<div id="HEADING_TUTORIAL_CSS" class="Heading">Tutorial:
+			Understanding Basic CSS</div>
+		<div class="Line"></div>
+		<div class="Spacer"></div>
+		<div class="Text">There is currently no information about this
+			topic available.</div>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>
+
+		<div id="HEADING_TUTORIAL_JS" class="Heading">Tutorial:
+			Understanding Basic JS</div>
+		<div class="Line"></div>
+		<div class="Spacer"></div>
+		<div class="Text">There is currently no information about this
+			topic available.</div>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>
+
+		<div id="HEADING_TUTORIAL_FRAGMENTS" class="Heading">Tutorial:
+			Creating and Editing HTML Fragments</div>
+		<div class="Line"></div>
+		<div class="Spacer"></div>
+		<div class="Text">
+			The first thing to understanding HTML Fragments, or rather fragments
+			in general, is understanding what a fragment is in the first place. A
+			fragment is a piece of text that is either interpreted or injected
+			directly into a "Macro" file: a file that will contain the content of
+			the fragment. In this case, we use the second strategy in order to
+			take advantage of HTML being a text-based language. <br> <br>
+			To start, it is worth looking into how HTML injection through
+			JavaScript works.
+			<div class="Code">
+				const elem = document.getElementById([HTML_ELEMENT_ID]); <br>
+				console.log(elem.innerHTML);
+			</div>
+			The above line of JavaScript will print out the contents of the
+			element with the given id. The contents that are printed out will
+			always be in HTML, not as some object. Not only can you print the
+			contents of an element, but you can also set the contents of an
+			element through this method.
+			<div class="Code">
+				const elem = document.getElementById([HTML_ELEMENT_ID]); <br>
+				elem.innerHTML = "&ltdiv class="foo" id="bar"&gtHello
+				World&lt/div&gt";
+			</div>
+			The above line will set the HTML content of the element with the
+			given id. Note, it <strong>sets</strong> the content, it does not
+			append. If you put this line of code into your JS file or use it on
+			the console, you'll notice that a new element will appear with the
+			text
+			<div class="String">Hello World</div>
+			in it. This is what is called HTML injection. From here, you can
+			guess that all matter of HTML can be injected this way; you can
+			inject tables, forms, CSS stylesheets, and even JavaScript. Using
+			this functionality, the
+			<div class="String">Loader.js</div>
+			file located at
+			<div class="String">files/scripts/Loader.js</div>
+			provides a method to insert HTML directly after the last child
+			element instead of just deleting all other children. You can use it
+			by coding:
+			<div class="Code">Loader.loadIntoPage([HTML_ELEMENT_ID],
+				[HTML_TO_INJECT]);</div>
+			While this goes a long way into putting HTML into your page from your
+			JavaScript, sometimes you want a file to be loaded so you don't have
+			to edit the JS file everytime. This is the true form of a fragment.
+			This can be done easily through the
+			<div class="String">Loader.js</div>
+			file as mentioned above. The method provdided to load a file is
+			<div class="String">Loader.loadFile([FILE_LOCATION],
+				[CALLBACK_FUNCTION])</div>
+			The
+			<div class="String">FILE_LOCATION</div>
+			is the path to the file starting from where the current JavaScript
+			will be executed (not necessarily where the JS file actually is) and
+			includes both the file and file type at the end of the path.
+		</div>
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>
 	</div>
 </div>

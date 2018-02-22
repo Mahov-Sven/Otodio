@@ -19,11 +19,11 @@ Z-Indices
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	background-color: #222226;
+	background-color: #303030;
 }
 
 .TestPageTab {
-	background-color: #333339;
+	background-color: #424242;
 	color: #dddddd;
 	padding: 4pt;
 	margin: 4pt;
@@ -32,11 +32,11 @@ Z-Indices
 }
 
 .TestPageTab:hover {
-	background-color: #555554;
+	background-color: #545454;
 }
 
 .TestPageTab:active {
-	background-color: #77778b;
+	background-color: #666666;
 }
 
 #TEST_PAGE_TAB_CONTENT {

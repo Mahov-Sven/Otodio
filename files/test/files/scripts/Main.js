@@ -22,11 +22,12 @@ function Main_createTab(title, location) {
 }
 
 function Main_loadTab(location) {
-	Loader.loadHTML(location + "/index", function(html) {
-		document.getElementById("TEST_PAGE_TAB_CONTENT").innerHTML = html;
+	Loader.loadFile(location + "/style.css", function(fileCSS) {
+		document.getElementById("TEST_PAGE_TAB_CONTENT").innerHTML = "";
+		Loader.loadIntoPage("TEST_PAGE_TAB_CONTENT", "<style>" + fileCSS + "</style>");
 		
-		Loader.loadFile(location + "/style.css", function(fileCSS) {
-			Loader.loadIntoPage("TEST_PAGE_TAB_CONTENT", "<style>" + fileCSS + "</style>");
+		Loader.loadFile(location + "/index.html", function(html) {
+			Loader.loadIntoPage("TEST_PAGE_TAB_CONTENT", html);
 			
 			Loader.loadFile(location + "/script.js", function(fileJS) {
 				Loader.loadIntoPage("TEST_PAGE_TAB_CONTENT", "<script>" + fileJS + "</script>");
