@@ -1,0 +1,63 @@
+#CONTENT{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: #1c1c1f;
+	display: flex;
+  	flex-flow: row wrap;
+  	flex-direction: column;
+}
+
+#PAGE{
+	height: 100%;
+	width: 80%;
+	max-width: 500pt;
+	display: flex;
+  	flex-flow: row nowrap;
+  	flex-direction: column;
+  	margin: 5pt auto 0 auto;
+  	background-color: #2b2b31;
+  	padding: 0pt 10pt;
+  	overflow: auto;
+}
+
+.Title{
+	font-size: 24pt;
+	font-weight: bold;
+	text-align: center;
+}
+
+.Heading{
+	font-size: 16pt;
+	font-weight: bold;
+}
+
+.Link{
+	color: #888888;
+}
+
+.Link:hover{
+	color: #aaaaaa;
+}
+
+.Link:active{
+	color: #cccccc;
+}
+
+.List{
+	margin-left: 40pt;
+}
+
+.Line{
+	margin: 2pt 5pt;
+	height: 1pt;
+	background-color: #aaaaaa;
+}
+
+.Spacer{
+	height: 10pt;
+}
+
+.Text{
+	color: #bbbbbb;
+}
