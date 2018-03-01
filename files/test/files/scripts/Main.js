@@ -26,8 +26,8 @@ function Main_loadTab(title) {
 		Loader.loadFile(title + "/index.html", function(html) {
 			Loader.loadIntoPage("TEST_PAGE_TAB_CONTENT", html);
 
-			Loader.loadFile(title + "/script.js", function(fileJS) {
-				Loader.loadIntoPage("TEST_PAGE_TAB_CONTENT", "<script>" + fileJS + "</script>");
+			Loader.loadJavaScriptIntoPage("TEST_PAGE_TAB_CONTENT", title + "/script.js", function(){
+				if(typeof fragmentReady === "function") fragmentReady();
 			});
 		});
 	});

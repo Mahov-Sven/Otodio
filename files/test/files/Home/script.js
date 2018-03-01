@@ -51,5 +51,3 @@ function addSection(section){
 	
 	Loader.loadIntoPage("PAGE", html);
 }
-
-fragmentReady();

@@ -2,6 +2,10 @@ const HTML_FILE_EXTENSION = "html";
 
 class Loader{
 	
+	static insertIntoPage(id, elem){
+		const parent = document.getElementById(id).appendChild(elem);
+	}
+	
 	static loadIntoPage(id, html){
 		document.getElementById(id).insertAdjacentHTML('beforeend', html);
 	}
@@ -29,7 +33,7 @@ class Loader{
 			};
 		}
 		script.src = fileLocation;
-		Loader.loadIntoPage(id, script);
+		Loader.insertIntoPage(id, script);
 	}
 	
 	static loadHTML(fileLocation, callback){
