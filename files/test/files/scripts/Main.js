@@ -18,9 +18,11 @@ function Main_createTab(title) {
 }
 
 function Main_loadTab(title) {
+	if(typeof fragmentReady === "function") fragmentReady = undefined;
+	document.getElementById("TEST_PAGE_TAB_CONTENT").innerHTML = "";
+	
 	title = "files/" + title;
 	Loader.loadFile(title + "/style.css", function(fileCSS) {
-		document.getElementById("TEST_PAGE_TAB_CONTENT").innerHTML = "";
 		Loader.loadIntoPage("TEST_PAGE_TAB_CONTENT", "<style>" + fileCSS + "</style>");
 
 		Loader.loadFile(title + "/index.html", function(html) {

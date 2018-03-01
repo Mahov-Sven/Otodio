@@ -37,17 +37,16 @@ function fragmentReady(){
 				/* Do Nothing */
 			});
 	});
-}
-
-function addSection(section){
-	const html = `<div id="HEADING_${section.id}" class="Heading">${section.title}</div>
-	<div class="Line"></div>
-	<div class="Spacer"></div>
-	${section.content}
-	<div class="Spacer"></div>
-	<a class="LinkTop" href="#WECLOME">To Top</a>
-	<div class="Spacer"></div>
-	<div class="Spacer"></div>`
 	
-	Loader.loadIntoPage("PAGE", html);
+	function addSection(section){
+		const html = `<div id="HEADING_${section.id}" class="Heading">${section.title}</div>
+		<div class="Line"></div>
+		${section.content}
+		<div class="Spacer"></div>
+		<a class="LinkTop" href="#WECLOME">To Top</a>
+		<div class="Spacer"></div>
+		<div class="Spacer"></div>`
+		
+		Loader.loadIntoPage("PAGE", html);
+	}
 }

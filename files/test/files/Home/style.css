@@ -26,14 +26,14 @@
 
 .Title{
 	color: #ffffff;
-	font-size: 24pt;
+	font-size: 28pt;
 	font-weight: bold;
 	text-align: center;
 }
 
 .Heading{
 	color: #ffffff;
-	font-size: 16pt;
+	font-size: 22pt;
 	font-weight: bold;
 }
 
@@ -84,7 +84,7 @@ li > .Hierarchy{
 }
 
 .Spacer{
-	margin: 5pt;
+	padding: 10pt;
 }
 
 .String{

@@ -53,19 +53,20 @@
 	<div class="Line"></div>
 	Your
 	<div class="String">script.js</div>
-	file includes the JavaScript for your page. While there are some
-	restrictions to your function names as noted below in <strong>Additional
-		Information</strong>, you probably won't have problems with it. Additionally,
-	the
+	file includes the JavaScript for your page. The most important
+	information to know is that you must put <strong><em>all</em></strong>
+	of your functions in the
 	<div class="Code">fragmentReady()</div>
-	function is called when the script is loaded. It can be used in the
-	following example:
+	function in order to ensure your JavaScript does not interfere with
+	other tabs' JavaScript functions. This function is called when the
+	script is loaded. It can be used in the following example:
 	<div class="Code">
-		/* Global JavaScript */<br> /* ... */<br> <br>/* Called
-		On Script Load */<br> fragmentReady(){<br> &emsp;/* Local
-		JavaScript */<br>&emsp;/* ... */<br>}<br> /* Global
-		JavaScript */<br> /* ... */<br>
+		fragmentReady(){<br> &emsp;/* JavaScript */<br>&emsp;alert("Hello
+		World");<br>&emsp;/* ... */<br>}<br>
 	</div>
+	While there are some restrictions to your function names as noted below
+	in <strong>Additional Information</strong>, you probably won't have
+	problems with it.
 	<div class="Spacer"></div>
 
 	<strong>Additional Information</strong>
