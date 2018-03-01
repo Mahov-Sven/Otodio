@@ -1,0 +1,54 @@
+<div class="Text">
+	In order to create a test page of your own, you will have to follow the
+	following steps:
+	<ol class="List">
+		<li class="ListElement">Fork the repository on GitHub, or if you
+			are a member of the team, clone the repository.
+		<li class="ListElement">Once forked, add a directory with the
+			title of your test page at
+			<div class="String">files/test/files/[PAGE_TITLE]</div>
+		<li class="ListElement">Within that directory add an
+			<div class="String">index.html</div> file, a
+			<div class="String">script.js</div> file, and a
+			<div class="String">style.css</div> file
+		<li class="ListElement">In the
+			<div class="String">fragments.txt</div> file located at
+			<div class="String">files/test/files/fragments.txt</div> add a line,
+			alphabetically, after the first line which is
+			<div class="String">Home</div> with the name of your
+			<div class="String">[PAGE_TITLE]</div>
+		<li class="ListElement">You may now add or remove other tabs from
+			showing on the test page by adding a
+			<div class="String">//</div> at the beginning
+		<li class="ListElement">When you commit, comment out all lines
+			except
+			<div class="String">Home</div> or other lines which were not already
+			commented out. The commit changes should show only a change on the
+			new line you added
+	</ol>
+	<div class="Spacer"></div>
+	Your tab should now be setup and will show on the test page at
+	<div class="String">localhost/files/test/</div>
+	. In order to make changes to your website you can edit the following
+	files:
+	<ul class="List">
+		<li class="ListElement"><div class="String">style.css</div>:
+			holds the test CSS content for whatever you're working on.
+		<li class="ListElement"><div class="String">index.html</div>:
+			holds the test HTML content for whatever you're working on. It is
+			injected into the page directly after the CSS.
+		<li class="ListElement"><div class="String">script.js</div>:
+			holds the test JavaScript content for whatever you're working on. It
+			is injected into the page (and not cleaned) directly after the
+			style.css.
+	</ul>
+	<div class="Spacer"></div>
+	Even though the connection between them is not directly evident (you
+	don't actually add the script tags to your HTML file to put your JS
+	file in), but know under the hood, there is already a system put in
+	place to retrieve your HTML, CSS and JavaScript files when you open
+	your tab and then inject them into this page's content. Since none of
+	these files are cleaned, please make sure that you do not put any
+	malicious JS code into your file. Any malicious JS code found will not
+	be allowed to be merged into the main branch anyway.
+</div>

@@ -1,0 +1,108 @@
+<div class="Text">
+	Editing your page is easy and fairly hands off! You only need to edit
+	the
+	<div class="String">index.html</div>
+	,
+	<div class="String">style.css</div>
+	and your
+	<div class="String">script.js</div>
+	files, and their content will be automatically loaded when you open
+	your tab.
+	<div class="Spacer"></div>
+
+	<strong>index.html</strong>
+	<div class="Line"></div>
+	Your
+	<div class="String">index.html</div>
+	includes the HTML for your page. The HTML you write should <strong><em>not</em></strong>
+	start with HTML tags such as
+	<div class="String">html</div>
+	,
+	<div class="String">head</div>
+	,
+	<div class="String">title</div>
+	,
+	<div class="String">body</div>
+	, etc. All of these tags should be used only by the parent page, not
+	your fragment. Your HTML may include tags like
+	<div class="String">a</div>
+	,
+	<div class="String">style</div>
+	and
+	<div class="String">script</div>
+	, but note that any links or paths to files you provide will need to be
+	changed a little as noted below in <strong>Additional
+		Information</strong>. As a tip, using the
+	<div class="String">div</div>
+	tag as a container, as if it was the
+	<div class="String">body</div>
+	tag of an HTML file works quite well.
+	<div class="Spacer"></div>
+
+	<strong>style.css</strong>
+	<div class="Line"></div>
+	Your
+	<div class="String">style.css</div>
+	file includes the CSS for your page. While there are some restrictions
+	to it as noted below in <strong>Additional Information</strong>, you
+	probably won't have problems so do not worry about how or what you name
+	your CSS classes and IDs.
+	<div class="Spacer"></div>
+
+	<strong>script.js</strong>
+	<div class="Line"></div>
+	Your
+	<div class="String">script.js</div>
+	file includes the JavaScript for your page. While there are some
+	restrictions to your function names as noted below in <strong>Additional
+		Information</strong>, you probably won't have problems with it. Additionally,
+	the
+	<div class="Code">fragmentReady()</div>
+	function is called when the script is loaded. It can be used in the
+	following example:
+	<div class="Code">
+		/* Global JavaScript */<br> /* ... */<br> <br>/* Called
+		On Script Load */<br> fragmentReady(){<br> &emsp;/* Local
+		JavaScript */<br>&emsp;/* ... */<br>}<br> /* Global
+		JavaScript */<br> /* ... */<br>
+	</div>
+	<div class="Spacer"></div>
+
+	<strong>Additional Information</strong>
+	<div class="Line"></div>
+	While the above information is fine for starting with the files, there
+	is some additional information you should know.
+	<ol class="List">
+		<li class="ListElement">All Paths specified for files do <strong><em>not</em></strong>
+			start from the directory of your
+			<div class="String">index.html</div> file, but instead originates
+			from the
+			<div class="String">index.html</div> of the parent file, that is,
+			from
+			<div class="String">files/test/</div>. This is the base directory. If
+			you want to access a file in your tab in a subdirectory you would
+			write the path as:
+			<div class="String">files/[PAGE_TITLE]/[PATH]</div> where the
+			<div class="String">[PATH]</div> is the path the the file from your
+			fragment's directory. For example, your fragment's
+			<div class="String">script.js</div> file has a simple
+			<div class="String">[PATH]</div> of
+			<div class="String">script.js</div>
+		<li class="ListElement">You should <strong><em>not</em></strong>
+			name any of your IDs in HTML starting with
+			<div class="String">TEST_PAGE</div>. This ID keyword is reserved for
+			the parent page to use. All other ID names are fine.
+		<li class="ListElement">You should <strong><em>not</em></strong>
+			name any of your JavaScript functions starting with
+			<div class="String">Main</div>. This keyword is reserved for all
+			functions in
+			<div class="String">Main.js</div> which contains the JavaScript
+			functions for the parent page.
+		<li class="ListElement">You should <strong><em>not</em></strong>
+			name any of your CSS styling for IDs starting with
+			<div class="String">TEST_PAGE</div> as this is reserved as explained
+			above. Nor should you name any of your CSS classes starting with
+			<div class="String">TestPage</div> as this is also reserved for the
+			parent page's CSS classes.
+	</ol>
+</div>

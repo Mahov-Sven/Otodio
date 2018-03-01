@@ -12,6 +12,26 @@ class Loader{
 		});
 	}
 	
+	static loadJavaScriptIntoPage(id, fileLocation, callback){
+		const script = document.createElement("script");
+		/* Internet Explorer */
+		if (script.readyState) {
+			script.onreadystatechange = function() {
+				if (script.readyState === "loaded" || script.readyState === "complete") {
+					script.onreadystatechange = null;
+					callback();
+				}
+			};
+		/* Other Browsers */
+		} else {
+			script.onload = function() {
+				callback();
+			};
+		}
+		script.src = fileLocation;
+		Loader.loadIntoPage(id, script);
+	}
+	
 	static loadHTML(fileLocation, callback){
 		this.loadFile(`${fileLocation}.${HTML_FILE_EXTENSION}`, function(html){
 			callback(html);

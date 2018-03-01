@@ -1,0 +1,57 @@
+<div class="Text">
+	The first thing to understanding HTML Fragments, or rather fragments in
+	general, is understanding what a fragment is in the first place. A
+	fragment is a piece of text that is either interpreted or injected
+	directly into a "Macro" file: a file that will contain the content of
+	the fragment. In this case, we use the second strategy in order to take
+	advantage of HTML being a text-based language. <br> <br> To
+	start, it is worth looking into how HTML injection through JavaScript
+	works.
+	<div class="Code">
+		const elem = document.getElementById([HTML_ELEMENT_ID]); <br>
+		console.log(elem.innerHTML);
+	</div>
+	The above line of JavaScript will print out the contents of the element
+	with the given id. The contents that are printed out will always be in
+	HTML, not as some object. Not only can you print the contents of an
+	element, but you can also set the contents of an element through this
+	method.
+	<div class="Code">
+		const elem = document.getElementById([HTML_ELEMENT_ID]); <br>
+		elem.innerHTML = `&ltdiv class="foo" id="bar"&gtHello
+		World&lt/div&gt`;
+	</div>
+	The above line will set the HTML content of the element with the given
+	id. Note, it <strong><em>sets</em></strong> the content, it does not append. If
+	you put this line of code into your JS file or use it on the console,
+	you'll notice that a new element will appear with the text
+	<div class="String">Hello World</div>
+	in it. This is what is called HTML injection. From here, you can guess
+	that all matter of HTML can be injected this way; you can inject
+	tables, forms, CSS stylesheets, and even JavaScript. Using this
+	functionality, the
+	<div class="String">Loader.js</div>
+	file located at
+	<div class="String">files/scripts/Loader.js</div>
+	provides a method to insert HTML directly after the last child element
+	instead of just deleting all other children. You can use it by coding:
+	<div class="Code">Loader.loadIntoPage([HTML_ELEMENT_ID],
+		[HTML_TO_INJECT]);</div>
+	While this goes a long way into putting HTML into your page from your
+	JavaScript, sometimes you want a file to be loaded so you don't have to
+	edit the JS file everytime. This is the true form of a fragment. This
+	can be done easily through the
+	<div class="String">Loader.js</div>
+	file as mentioned above. The method provdided to load a file is
+	<div class="Code">Loader.loadFile([FILE_LOCATION],
+		[CALLBACK_FUNCTION])</div>
+	The
+	<div class="String">FILE_LOCATION</div>
+	is the path to the file starting from where the current JavaScript will
+	be executed (not necessarily where the JS file actually is) and
+	includes both the file and file type at the end of the path.
+	<div class="String">CALLBACK_FUNCTION</div>
+	is a function which will be called when the file contents have been
+	retrieved. The function takes in a single argument, which is the
+	content of the file given.
+</div>

@@ -1,1 +1,7 @@
 CREATE_PAGE: How to Create Your Own Page
+EDIT_PAGE: How to Edit Your Page
+TUTORIALS: Tutorials
+TUTORIAL_HTML: Understanding Basic HTML
+TUTORIAL_CSS: Understanding Basic CSS
+TUTORIAL_JS: Understanding Basic JavaScript
+TUTORIAL_FRAGMENTS: Creating and Editing HTML Fragments

@@ -1,48 +1,42 @@
 function fragmentReady(){
-	console.log("HI");/*
 	Loader.loadFile("files/Home/headings/headings.txt", function(file){
 		const sections = [];
 		const lines = file.split('\n');
 		for(const line of lines){
 			const info = line.split(':');
+			if(info.length != 2) continue;
 			const id = info[0];
-			const title = info[1];
+			const title = info[1].trim();
 			const section = {};
 			section.id = id;
 			section.title = title;
 			section.content = null;
-			section.added = false;
 			sections.push(section);
 		}
-		let loadedIndex = -1;
-		Util.syncListProcess(sections, 
+		let waitingIndex = 0;
+		Util.syncListProcess(sections,
+			/* Async Load Files */
 			function(section, index, callback){
-				Loader.loadFile(section.title + ".html", function(file){
+				Loader.loadFile("files/Home/headings/" + section.id + ".html", function(file){
+					/* Callback to File process function */
 					callback(file, index);
 				});
 			}, 
+			/* File process function */
 			function(file, index){
 				sections[index].content = file;
-				if(loadedIndex + 1 == index){
-					let j = index;
-					while(j < sections.length && sections[j].content != null){
-						
-						addSection(sections[j]);
-						
-						j++;
+				if(index == waitingIndex){
+					while(waitingIndex < sections.length && sections[waitingIndex].content != null){
+						addSection(sections[waitingIndex]);
+						waitingIndex++;
 					}
 				}
 			},
+			/* Function called after all files are loaded */
 			function(){
-				let j = loadedIndex + 1;
-				while(j < sections.length && sections[j].content != null){
-					
-					addSection(sections[j]);
-					
-					j++;
-				}
+				/* Do Nothing */
 			});
-	});*/
+	});
 }
 
 function addSection(section){
@@ -51,7 +45,7 @@ function addSection(section){
 	<div class="Spacer"></div>
 	${section.content}
 	<div class="Spacer"></div>
-	<a class="LinkTop" href="">To Top</a>
+	<a class="LinkTop" href="#WECLOME">To Top</a>
 	<div class="Spacer"></div>
 	<div class="Spacer"></div>`
 	

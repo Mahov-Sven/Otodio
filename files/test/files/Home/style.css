@@ -10,15 +10,16 @@
 
 #PAGE{
 	height: 100%;
-	width: 80%;
-	max-width: 500pt;
+	max-width: 80%;
+	width: 750pt;
 	display: flex;
   	flex-flow: row nowrap;
   	flex-direction: column;
   	margin: 5pt auto 0 auto;
   	background-color: #424242;
   	padding: 0pt 10pt;
-  	overflow: auto;
+  	overflow-x: hidden;
+  	overflow-y: auto;
   	border-top-right-radius: 4pt;
   	border-bottom-right-radius: 4pt;
 }
@@ -90,7 +91,7 @@ li > .Hierarchy{
 	display: inline-block;
 	color: #ffc600;
 	background: #303030;
-	padding: 2pt 2pt;
+	padding: 3pt 2pt 2pt 2pt;
 	border-radius: 3pt;
 	font-family: Lucida Console;
 }
@@ -99,7 +100,7 @@ li > .Hierarchy{
 	margin: 5pt 0pt;
 	color: #7878aa;
 	background: #303030;
-	padding: 2pt 2pt;
+	padding: 3pt 2pt 2pt 2pt;
 	border-radius: 5pt;
 	font-family: Lucida Console;
 	border: #2a2a2a solid 2pt;
