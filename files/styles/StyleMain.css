@@ -6,12 +6,61 @@ Z-Indices
 1: Foreground Content
 2: Foreground/Topbar
 */
+#CONTENT {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+#TOP_BANNER {
+	background-color: #303030;
+	flex-shrink: 0;
+	position: relative;
+}
+
+#LOGO {
+	height: 3rem;
+}
+
+#INNER_CONTENT {
+	height: auto;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+}
+
+#SIDE_OPTIONS {
+	background-color: #424242;
+	flex-shrink: 0;
+}
+
+.OptionIcon{
+	height: 2.5rem;
+	padding: 0.3rem;
+}
+
+#PAGE {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+#PAGE_CONTENT {
+	background-color: #212121;
+	flex-grow: 1;
+}
+
+#PAGE_SEARCH {
+	background-color: #303030;
+	flex-shrink: 0;
+}
 
 .Fade {
 	opacity: 0;
 }
 
-*{
+* {
 	margin: 0;
 	padding: 0;
 	border-spacing: 0;
