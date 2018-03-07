@@ -59,13 +59,24 @@ Z-Indices
 	align-items: center;
 }
 
+#TAB_VIDEO{
+	background-image: url("../res/img/Video_Play.png");
+}
+
+#TAB_PLAYLIST{
+	background-image: url("../res/img/Playlist.png");
+}
+
+#TAB_SETTINGS{
+	background-image: url("../res/img/Settings.png");
+}
+
 .Option {
 	flex-shrink: 0;
 	width: 2.5rem;
 	height: 2.5rem;
 	padding: 0.3rem;
 	margin: 0;
-	background-image: url("../res/img/Settings.png");
 	background-blend-mode: darken;
 	background-size: 2.5rem 2.5rem;
 	background-repeat: no-repeat;
