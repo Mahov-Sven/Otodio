@@ -40,7 +40,7 @@ Z-Indices
 	line-height: 2.8rem;
 }
 
-.LogText:hover{
+.LogText:hover {
 	background-color: #444444;
 }
 
@@ -59,16 +59,67 @@ Z-Indices
 	align-items: center;
 }
 
-#TAB_VIDEO{
+#TAB_VIDEO {
 	background-image: url("../res/img/Video_Play.png");
 }
 
-#TAB_PLAYLIST{
+#TAB_PLAYLIST {
 	background-image: url("../res/img/Playlist.png");
 }
 
-#TAB_SETTINGS{
+#TAB_SETTINGS {
 	background-image: url("../res/img/Settings.png");
+}
+
+.TooltipContainer {
+	position: relative;
+	display: inline-block;
+}
+
+.TooltipBase {
+	font-family: Verdana;
+	visibility: hidden;
+	background-color: #666666;
+	color: #ffffff;
+	text-align: center;
+	height: 40%;
+	padding: 5% 0.2rem;
+	border-radius: 0.3rem;
+	position: absolute;
+	z-index: 2;
+	opacity: 0;
+	pointer-events: none;
+	white-space: nowrap;
+}
+
+.TooltipBase::after {
+	content: " ";
+	position: absolute;
+	border-width: 0.2rem;
+	border-style: solid;
+	border-color: transparent #666666 transparent transparent;
+}
+
+.TooltipRight {
+	top: 25%;
+	left: 105%;
+}
+
+.TooltipRight::after {
+	top: 50%;
+	right: 100%;
+	margin-top: -0.2rem; /* Negative of .TooltipBase::after border-width */
+}
+
+.TooltipContainer:hover .TooltipBase {
+	visibility: visible;
+	opacity: 1;
+	transition: opacity 0.5s;
+	transition-delay: 0.5s;
+}
+
+#VIDEO_STATUS{
+	display: inline-block;
 }
 
 .Option {
@@ -83,8 +134,12 @@ Z-Indices
 	background-position: center;
 }
 
-.Option:hover{
+.Option:hover {
 	background-color: #444444;
+}
+
+.Option:active {
+	background-color: #555555;
 }
 
 .OptionActive {

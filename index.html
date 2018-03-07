@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Otodio</title>
-	<link rel='stylesheet' type='text/css' href='files/styles/StyleMain.css'/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="files/scripts/Util.js"></script>
-	<script src="files/scripts/Loader.js"></script>
-	<script src="files/scripts/Main.js"></script>
+<title>Otodio</title>
+<link rel='stylesheet' type='text/css' href='files/styles/StyleMain.css' />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="files/scripts/Util.js"></script>
+<script src="files/scripts/Loader.js"></script>
+<script src="files/scripts/Main.js"></script>
 </head>
 <body>
 	<div id="CONTENT">
@@ -19,10 +20,19 @@
 		</div>
 		<div id="INNER_CONTENT">
 			<div id="TABS">
-				<div class="Option OptionActive"  id="TAB_VIDEO"></div>
-				<div class="Option"  id="TAB_PLAYLIST"></div>
+				<div class="TooltipContainer">
+					<div class="Option OptionActive" id="TAB_VIDEO"></div>
+					<div class="TooltipBase TooltipRight">Current Video | <div id="VIDEO_STATUS">Playing</div></div>
+				</div>
+				<div class="TooltipContainer">
+					<div class="Option" id="TAB_PLAYLIST"></div>
+					<div class="TooltipBase TooltipRight">Playlists</div>
+				</div>
 				<div class="FlexDynamic"></div>
-				<div class="Option"  id="TAB_SETTINGS"></div>
+				<div class="TooltipContainer">
+					<div class="Option" id="TAB_SETTINGS"></div>
+					<div class="TooltipBase TooltipRight">Settings</div>
+				</div>
 			</div>
 			<div id="PAGE">
 				<div id="PAGE_TOOLS"></div>
