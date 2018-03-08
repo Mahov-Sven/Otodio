@@ -4,7 +4,12 @@ $(document).ready(function () {
 
 	// ------------- INITIALIZATION STUFF -------------
 	
-	// ------------- START OF JQUERY STUFF -------------
+	// ------------- GLOBAL VARS -------------
+	
+	Globas = {};
+	Globas.session = new Session();
+	
+	// ------------- START OF JQUERY -------------
 
 	$("#TAB_VIDEO").click(() => {
 		switchTab("video");
@@ -18,7 +23,7 @@ $(document).ready(function () {
 		switchTab("settings");
 	});
 	
-	// ------------- END OF JQUERY STUFF -------------
+	// ------------- END OF JQUERY -------------
 });
 
 function switchTab(newTab){
