@@ -14,7 +14,6 @@ function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', {
   		height: '390',
   		width: '640',
-  		videoId: 'M7lc1UVf-VE',
   		events: {
     		'onReady': onPlayerReady,
     		'onStateChange': onPlayerStateChange
@@ -24,6 +23,7 @@ function onYouTubeIframeAPIReady() {
 //The API will call this function when the video player is ready.
 
 function onPlayerReady(event) {
+	event.target.loadPlaylist("https://www.youtube.com/playlist?list=PL02nT4Qj4Z2R7AxNY6_CCDmHLuBX-9qe2");
 	event.target.playVideo();
 }
 
