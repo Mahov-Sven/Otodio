@@ -20,12 +20,10 @@ Z-Indices
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: 0.2rem;
 }
 
 #LOGO {
 	height: 2.8rem;
-	flex-basis: 3rem;
 	margin: 0;
 	display: block;
 }
@@ -33,15 +31,15 @@ Z-Indices
 .LogText {
 	font-family: Verdana;
 	font-weight: bold;
-	padding: 0rem 0.3rem;
-	margin: 0rem 0.5rem;
+	padding: 0.3rem 0.5em;
 	height: 2.8rem;
 	text-align: center;
 	line-height: 2.8rem;
+	cursor: pointer;
 }
 
 .LogText:hover {
-	background-color: #444444;
+	background-color: #333333;
 }
 
 #INNER_CONTENT {
@@ -60,7 +58,7 @@ Z-Indices
 }
 
 #TAB_VIDEO {
-	background-image: url("../res/img/Video_Play.png");
+	background-image: url("../res/img/Video_Pause.png");
 }
 
 #TAB_PLAYLIST {
@@ -132,6 +130,7 @@ Z-Indices
 	background-size: 2.5rem 2.5rem;
 	background-repeat: no-repeat;
 	background-position: center;
+	cursor: pointer;
 }
 
 .Option:hover {
