@@ -1,6 +1,6 @@
 Page.pageReady = function(){
 	
-	Page.addTool("files/res/img/Shuffle.png", "Suffle Playlist", {
+	Page.addTool("files/res/img/Shuffle.png", "Shuffle Playlist", {
 		"click": shufflePlaylist(),
 	});
 	

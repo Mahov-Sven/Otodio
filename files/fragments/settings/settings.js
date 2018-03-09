@@ -1,3 +1,3 @@
-function Page_pageReady(){
+Page.pageReady = function(){
 	
 }

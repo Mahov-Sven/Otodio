@@ -33,22 +33,27 @@ class Page {
 	 * Adds a tool to the page's toolbar.<br>
 	 * <br>
 	 * @param imgSrc The image path for the tool<br>
-	 * @param tooltip The tooltip for the tool. Can be text or even HTML elements<br>
+	 * @param tooltip The tooltip for the tool. Must be text<br>
 	 * @param eventsObj An object containing the names of JQuery events with values equal to their event handlers. e.g. {"click":() => {console.log("Hello World");}}
 	 */
 	static addTool(imgSrc, tooltip, eventsObj) {
 		const elem = $("<div>");
-		// TODO tooltip setup
-		// Tip: look at how the tab tooltips are done
+		elem.addClass("TooltipContainer");
+		const tooltipElem = $("<div>");
+		tooltipElem.addClass("TooltipBase");
+		tooltipElem.addClass("TooltipDown");
+		tooltipElem.text(tooltip);
 		const buttonElem = $("<div>");
-		// TODO button element setup
-		// Tip: look at how the tabs are done
+		buttonElem.addClass("PageTool");
+		buttonElem.css("background-image", "url(\"" + imgSrc + "\")");
+		
 		
 		Object.keys(eventsObj).forEach((key, index) => {
 			buttonElem.on(key, eventsObj[key]);
 		});
 		
 		elem.append(buttonElem);
+		elem.append(tooltipElem);
 		$(`#${Page.pageToolsID}`).append(elem);
 	}
 }
