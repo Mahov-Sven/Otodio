@@ -6,8 +6,8 @@ $(document).ready(function () {
 	
 	// ------------- GLOBAL VARS -------------
 	
-	Globas = {};
-	Globas.session = new Session();
+	Globals = {};
+	Globals.session = new Session();
 	
 	// ------------- START OF JQUERY -------------
 
