@@ -44,7 +44,7 @@ function onPlayerReady(event) {
 
 //TODO login with youtube function(extra)
 //TODO pull videos from playlist function
-function importPlaylist(playlistID, pageToken=null, currentPlaylist=[]){
+function importPlaylist(playlistID, updateProgress = function(){console.log('Next Part');}, pageToken=null, currentPlaylist=[]){
   var requestOptions = {
     playlistId: playlistID,
     part: 'snippet',
@@ -58,8 +58,10 @@ function importPlaylist(playlistID, pageToken=null, currentPlaylist=[]){
     var playlistItems = response.result.items;
     if (playlistItems) {
       if(response.result.nextPageToken){
-        importPlaylist(playlistID, response.result.nextPageToken, currentPlaylist.concat(playlistItems));
+        updateProgress();
+        importPlaylist(playlistID, updateProgress, response.result.nextPageToken, currentPlaylist.concat(playlistItems));
       }else{
+        updateProgress();
         console.log(currentPlaylist.concat(playlistItems));
         return currentPlaylist.concat(playlistItems);
       }
