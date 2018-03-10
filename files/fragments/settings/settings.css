@@ -1,34 +1,4 @@
 #SETTINGS_CONTENT {
-	min-width: 100%;
-	min-height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-#SETTINGS_NEED_LOG_CONTAINER {
-	width: 100%;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
-
-#SETTINGS_NEED_LOG_CONTENT {
-	background-color: #333333;
-}
-
-#SETTINGS_LOG_CONTAINER {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-}
-
-#SETTINGS_LOGIN {
-}
-
-#SETTINGS_REGISTER {
-	
+	width: 100%;
 }

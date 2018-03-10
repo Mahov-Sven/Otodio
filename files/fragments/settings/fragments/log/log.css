@@ -1,0 +1,47 @@
+#SETTINGS_LOG_CONTAINER {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#SETTINGS_LOG_CONTENT {
+	position: absolute;
+	background-color: #333333;
+	width: 25rem;
+	max-width: 80%;
+	text-align: center;
+	border: 0.2rem solid #111111;
+	border-radius: 0.5rem;
+	color: #cccccc;
+	font-family: verdana;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+}
+
+#SETTINGS_LOG_BUTTON_CONTAINER {
+	position: relative;
+	padding: 0.5rem;
+}
+
+.SettingsLogButton{
+	display: inline-block;
+	background-color: #4286f4;
+	color: #000000;
+	font-weight: bold;
+	border-radius: 0.5rem;
+	padding: 0.2rem 0.5rem;
+	cursor: pointer;
+	user-select: none;
+}
+
+#SETTINGS_LOGIN {
+}
+
+#SETTINGS_REGISTER {
+}
+
+#SETTINGS_LOGIN_GUEST {
+}

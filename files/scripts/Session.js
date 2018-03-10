@@ -18,6 +18,10 @@ class Session {
 		// TODO
 	}
 	
+	isGuest(){
+		return this._username == "guest" && this._password == "guest";
+	}
+	
 	save(){
 		// TODO
 	}

@@ -20,6 +20,7 @@ Z-Indices
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	z-index 1;
 }
 
 #LOGO {
@@ -55,6 +56,7 @@ Z-Indices
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	z-index: 1;
 }
 
 .Option {
@@ -216,6 +218,8 @@ Z-Indices
 #PAGE_CONTENT {
 	background-color: #222222;
 	flex-grow: 1;
+	width: 100%;
+	height: 100%;
 }
 
 #PAGE_SEARCH {
@@ -225,6 +229,11 @@ Z-Indices
 
 .Fade {
 	opacity: 0;
+}
+
+html {
+	width: 100%;
+	height: 100%;
 }
 
 * {
