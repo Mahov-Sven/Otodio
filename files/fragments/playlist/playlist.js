@@ -1,5 +1,5 @@
 Page.pageReady = function(){
-	Page.addTool("files/res/img/Merge.png", "Merge Playlists", {
+	Page.addTool("TOOL_MERGE_PLAYLISTS", "Merge Playlists", {
 		"click": startMergePlaylists(),
 	});
 	

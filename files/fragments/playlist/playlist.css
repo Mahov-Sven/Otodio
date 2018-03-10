@@ -1,0 +1,7 @@
+#TOOL_MERGE_PLAYLISTS {
+	background-image: url("files/res/img/Merge.png");
+}
+
+#TOOL_MERGE_PLAYLISTS:hover {
+	background-image: url("files/res/img/Merge_Hover.png");
+}

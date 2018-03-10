@@ -14,7 +14,7 @@ Z-Indices
 }
 
 #TOP_BANNER {
-	background-color: #4d4d4d;
+	background-color: #666666;
 	flex-shrink: 0;
 	position: relative;
 	display: flex;
@@ -39,7 +39,7 @@ Z-Indices
 }
 
 .LogText:hover {
-	background-color: #333333;
+	background-color: #888888;
 }
 
 #INNER_CONTENT {
@@ -50,11 +50,32 @@ Z-Indices
 }
 
 #TABS {
-	background-color: #333333;
+	background-color: #555555;
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.Option {
+	flex-shrink: 0;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0.3rem;
+	margin: 0;
+	background-blend-mode: lighten;
+	background-size: 2.5rem 2.5rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+
+.Option:active {
+	background-color: #777777;
+}
+
+.OptionActive {
+	background-color: #444444;
 }
 
 #TAB_VIDEO.Playing {
@@ -116,6 +137,7 @@ Z-Indices
 	opacity: 0;
 	pointer-events: none;
 	white-space: nowrap;
+	user-select: none;
 }
 
 .TooltipBase::before {
@@ -123,7 +145,6 @@ Z-Indices
 	position: absolute;
 	border-width: 0.2rem;
 	border-style: solid;
-	border-color: transparent #666666 transparent transparent;
 }
 
 .TooltipRight {
@@ -135,6 +156,20 @@ Z-Indices
 	top: 50%;
 	right: 100%;
 	margin-top: -0.2rem; /* Negative of .TooltipBase::before border-width */
+	border-color: transparent #666666 transparent transparent;
+}
+
+.TooltipDown {
+	top: 105%%;
+	left: -100%;
+	
+}
+
+.TooltipDown::before {
+	bottom: 100%;
+	left: 50%;
+	margin-left: -0.2rem; /* Negative of .TooltipBase::before border-width */
+	border-color: transparent transparent #666666 transparent;
 }
 
 .TooltipContainer:hover .TooltipBase {
@@ -142,35 +177,6 @@ Z-Indices
 	opacity: 1;
 	transition: opacity 0.5s;
 	transition-delay: 0.5s;
-}
-
-#VIDEO_STATUS{
-	display: inline-block;
-}
-
-.Option {
-	flex-shrink: 0;
-	width: 2.5rem;
-	height: 2.5rem;
-	padding: 0.3rem;
-	margin: 0;
-	background-blend-mode: lighten;
-	background-size: 2.5rem 2.5rem;
-	background-repeat: no-repeat;
-	background-position: center;
-	cursor: pointer;
-}
-
-.Option:hover {
-	background-color: #444444;
-}
-
-.Option:active {
-	background-color: #555555;
-}
-
-.OptionActive {
-	background-color: #222222;
 }
 
 .FlexDynamic {
@@ -186,11 +192,12 @@ Z-Indices
 }
 
 #PAGE_TOOLS {
-	background-color: #111111;
+	background-color: #333333;
 	flex-shrink: 0;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: center;
 }
 
 .PageTool{
@@ -212,7 +219,7 @@ Z-Indices
 }
 
 #PAGE_SEARCH {
-	background-color: #111111;
+	background-color: #333333;
 	flex-shrink: 0;
 }
 

@@ -1,6 +1,6 @@
 Page.pageReady = function(){
 	onYouTubeIframeAPIReady();
-	Page.addTool("files/res/img/Shuffle.png", "Shuffle Playlist", {
+	Page.addTool("TOOL_SHUFFLE_PLAYLIST", "Shuffle Playlist", {
 		"click": shufflePlaylist(),
 	});
 	

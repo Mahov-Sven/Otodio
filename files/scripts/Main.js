@@ -24,6 +24,9 @@ $(document).ready(function () {
 	});
 	
 	// ------------- END OF JQUERY -------------
+	
+	// ------------- START PAGE -------------
+	$("#TAB_SETTINGS").trigger("click");
 });
 
 function switchTab(newTab){

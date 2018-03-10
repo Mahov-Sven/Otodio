@@ -8,18 +8,18 @@ class Page {
 		Page.clearTools();
 		document.getElementById(Page.pageID).innerHTML = "";
 
-		const loc = "files/fragments/" + title + '/' + title;
-		Loader.loadFile(loc + ".css", function(fileCSS) {
-			Loader.loadIntoPage(Page.pageID, "<style>" + fileCSS + "</style>");
-
-			Loader.loadFile(loc + ".html", function(html) {
-				Loader.loadIntoPage(Page.pageID, html);
-
-				Loader.loadJavaScriptIntoPage(Page.pageID, loc + ".js", function() {
-					if (typeof Page.pageReady === "function") Page.pageReady();
-				});
-			});
+		const loc = "files/fragments/" + title + '/' + title;		
+		Loader.loadFragment(Page.pageID, loc + ".html", loc + ".css", loc + ".js", () => {
+			if (typeof Page.pageReady === "function") Page.pageReady();
+			Page.currentPage = title;
 		});
+	}
+	
+	/**
+	 * Reloads the current page. Usefull to rerun JavaScript
+	 */
+	static reload(){
+		Page.load(Page.currentPage);
 	}
 	
 	/**
@@ -36,7 +36,7 @@ class Page {
 	 * @param tooltip The tooltip for the tool. Must be text<br>
 	 * @param eventsObj An object containing the names of JQuery events with values equal to their event handlers. e.g. {"click":() => {console.log("Hello World");}}
 	 */
-	static addTool(imgSrc, tooltip, eventsObj) {
+	static addTool(id, tooltip, eventsObj) {
 		const elem = $("<div>");
 		elem.addClass("TooltipContainer");
 		const tooltipElem = $("<div>");
@@ -45,8 +45,7 @@ class Page {
 		tooltipElem.text(tooltip);
 		const buttonElem = $("<div>");
 		buttonElem.addClass("PageTool");
-		buttonElem.css("background-image", "url(\"" + imgSrc + "\")");
-		
+		buttonElem.attr("id", id);
 		
 		Object.keys(eventsObj).forEach((key, index) => {
 			buttonElem.on(key, eventsObj[key]);
@@ -74,3 +73,8 @@ Page.pageToolsID = "PAGE_TOOLS";
  * The HTML ID of the div to contain the page
  */
 Page.pageID = "PAGE_CONTENT";
+
+/**
+ * Keeps track of the current page
+ */ 
+Page.currentPage = undefined;

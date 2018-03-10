@@ -41,4 +41,19 @@ class Loader{
 			callback(html);
 		});
 	}
+	
+	static loadFragment(id, htmlFile, cssFile, jsFile, callback){
+		document.getElementById(id).innerHTML = "";
+		Loader.loadFile(cssFile, function(fileCSS) {
+			Loader.loadIntoPage(id, "<style>" + fileCSS + "</style>");
+
+			Loader.loadFile(htmlFile, function(html) {
+				Loader.loadIntoPage(id, html);
+
+				Loader.loadJavaScriptIntoPage(id, jsFile, function() {
+					callback();
+				});
+			});
+		});
+	}
 }

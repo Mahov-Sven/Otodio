@@ -1,3 +1,11 @@
+#TOOL_SHUFFLE_PLAYLIST{
+	background-image: url("files/res/img/Shuffle.png");
+}
+
+#TOOL_SHUFFLE_PLAYLIST:hover{
+	background-image: url("files/res/img/Shuffle_Hover.png");
+}
+
 #playlistContainer {
   display: flex;
   align-items: center;
