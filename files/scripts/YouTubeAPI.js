@@ -38,31 +38,33 @@ function onYouTubeIframeAPIReady() {
 }
 //The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-  importPlaylist("PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN", (playlistItems)=>{
-    event.target.loadVideoById(playlistItems[0].snippet.resourceId.videoId);
-    console.log(event.target.videoId);
-    event.target.playVideo();
-  });
-  
+  importPlaylist("PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN");
 }
 
 
 //TODO login with youtube function(extra)
 //TODO pull videos from playlist function
-function importPlaylist(playlistID, playVideo){
+function importPlaylist(playlistID, pageToken=null, currentPlaylist=[]){
   var requestOptions = {
     playlistId: playlistID,
     part: 'snippet',
     maxResults: 50
   };
+  if(pageToken){
+    requestOptions.pageToken = pageToken;
+  }
   var request = gapi.client.youtube.playlistItems.list(requestOptions);
   request.execute(function(response) {
     var playlistItems = response.result.items;
     if (playlistItems) {
-      console.log(playlistItems);
-      playVideo(playlistItems);
+      if(response.result.nextPageToken){
+        importPlaylist(playlistID, response.result.nextPageToken, currentPlaylist.concat(playlistItems));
+      }else{
+        console.log(currentPlaylist.concat(playlistItems));
+        return currentPlaylist.concat(playlistItems);
+      }
     } else {
-      console.log("notAPlaylist");
+      console.log("Invalid Playlist Id");
     }
   });
 }
