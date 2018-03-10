@@ -57,16 +57,44 @@ Z-Indices
 	align-items: center;
 }
 
-#TAB_VIDEO {
-	background-image: url("../res/img/Video_Pause.png");
+#TAB_VIDEO.Playing {
+	background-image: url("../res/img/Video_Play.png");
+}
+
+#TAB_VIDEO.Playing:hover {
+	background-image: url("../res/img/Video_Play_Hover.png");
+}
+
+#TAB_VIDEO.Playing + .TooltipBase::after {
+	content: "Playing";
+}
+
+#TAB_VIDEO.Paused {
+	background-image: url("../res/img/Video_Paused.png");
+}
+
+#TAB_VIDEO.Paused:hover {
+	background-image: url("../res/img/Video_Paused_Hover.png");
+}
+
+#TAB_VIDEO.Paused + .TooltipBase::after {
+	content: "Paused";
 }
 
 #TAB_PLAYLIST {
 	background-image: url("../res/img/Playlist.png");
 }
 
+#TAB_PLAYLIST:hover {
+	background-image: url("../res/img/Playlist_Hover.png");
+}
+
 #TAB_SETTINGS {
 	background-image: url("../res/img/Settings.png");
+}
+
+#TAB_SETTINGS:hover {
+	background-image: url("../res/img/Settings_Hover.png");
 }
 
 .TooltipContainer {
@@ -90,7 +118,7 @@ Z-Indices
 	white-space: nowrap;
 }
 
-.TooltipBase::after {
+.TooltipBase::before {
 	content: " ";
 	position: absolute;
 	border-width: 0.2rem;
@@ -103,10 +131,10 @@ Z-Indices
 	left: 105%;
 }
 
-.TooltipRight::after {
+.TooltipRight::before {
 	top: 50%;
 	right: 100%;
-	margin-top: -0.2rem; /* Negative of .TooltipBase::after border-width */
+	margin-top: -0.2rem; /* Negative of .TooltipBase::before border-width */
 }
 
 .TooltipContainer:hover .TooltipBase {
@@ -126,7 +154,7 @@ Z-Indices
 	height: 2.5rem;
 	padding: 0.3rem;
 	margin: 0;
-	background-blend-mode: darken;
+	background-blend-mode: lighten;
 	background-size: 2.5rem 2.5rem;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -171,7 +199,7 @@ Z-Indices
 	height: 1.5rem;
 	padding: 0.3rem;
 	margin: 0;
-	background-blend-mode: darken;
+	background-blend-mode: lighten;
 	background-size: 2rem 1.5rem;
 	background-repeat: no-repeat;
 	background-position: center;
