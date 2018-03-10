@@ -38,12 +38,12 @@ function onYouTubeIframeAPIReady() {
 }
 //The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-  importPlaylist("PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN");
 }
 
 
 //TODO login with youtube function(extra)
-//TODO pull videos from playlist function
+
+//Retrieves all videos from a youtube playist
 function importPlaylist(playlistID, updateProgress = function(){console.log('Next Part');}, pageToken=null, currentPlaylist=[]){
   var requestOptions = {
     playlistId: playlistID,
@@ -70,5 +70,7 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
     }
   });
 }
+
 //TODO load video function
+
 //TODO 
