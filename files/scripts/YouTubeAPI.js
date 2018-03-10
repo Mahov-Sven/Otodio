@@ -36,10 +36,6 @@ function onYouTubeIframeAPIReady() {
   		}
 	});
 }
-//The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-}
-
 
 //TODO login with youtube function(extra)
 
@@ -63,7 +59,7 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
       }else{
         updateProgress();
         console.log(currentPlaylist.concat(playlistItems));
-        return currentPlaylist.concat(playlistItems);
+        session.addPlaylist(currentPlaylist.concat(playlistItems));
       }
     } else {
       console.log("Invalid Playlist Id");
@@ -71,6 +67,13 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
   });
 }
 
-//TODO load video function
+//TODO load playlist function
+function loadVideo(videoId){
+  //Select youtube player from page
+  //Load playlist
+  //Next video
+}
 
-//TODO 
+//TODO Next Video
+
+//TODO Retrieve Video Pictures

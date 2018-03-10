@@ -1,5 +1,3 @@
-
-
 class Playlist {
     constructor() {
         this.videos = [];
