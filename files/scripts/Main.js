@@ -3,7 +3,6 @@ $(document).ready(function () {
 	// ------------- SO THEY DON'T TRIGGER BEFORE LOAD -------------
 
 	// ------------- INITIALIZATION STUFF -------------
-	
 	// ------------- GLOBAL VARS -------------
 	
 	Globals = {};
