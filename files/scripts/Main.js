@@ -7,7 +7,7 @@ $(document).ready(function () {
 	
 	Globals = {};
 	Globals.session = new Session();
-	
+	Globals.player;
 	// ------------- START OF JQUERY -------------
 
 	$("#TAB_VIDEO").click(() => {

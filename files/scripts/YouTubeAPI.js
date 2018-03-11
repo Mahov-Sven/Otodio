@@ -27,21 +27,20 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //after the API code downloads.
 
 function onYouTubeIframeAPIReady() {
-	const player = new YT.Player('player', {
+   Globals.player = new YT.Player('player', {
   		height: '90%',
   		width: '90%',
       videoId: '',
   		events: {
         'onReady': onPlayerReady,
-        'loadVideo': loadVideo
       }
 	});
 }
 
 function onPlayerReady(event){
-  importPlaylist('PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN');
-  //event.target.loadPlaylist('UEwwMm5UNFFqNFoyVDJwcGE2REhjVDhWZE5IRjFWUmNVTi41NkI0NEY2RDEwNTU3Q0M2');
-  //event.target.nextVideo();
+  let videos = importPlaylist('PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN');
+  event.target.loadPlaylist(["Woorod1gJ_w", "AS4q9yaWJkI", "fzQ6gRAEoy0", "aYNWEdA67fQ", "M7VIDzmrpx4",
+    "-tKVN2mAKRI", "4eBH5zdaLRk", "Nmqr9lADWhM", "qfX6MjpQNfI", "bdcAV-HawpE"]);
 }
 //TODO login with youtube function(extra)
 
@@ -73,7 +72,7 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
         }
         updateProgress();
         console.log(currentPlaylist.concat(videoItems));
-        session.addPlaylist(currentPlaylist.concat(videoItems));
+        return currentPlaylist.concat(videoItems);
       }
     } else {
       console.log("Invalid Playlist Id");
@@ -81,6 +80,6 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
   });
 }
 
-function loadVideo(event){
-  event.target.nextVideo();
+function loadVideo(){
+  Globals.player.nextVideo();
 }

@@ -1,6 +1,6 @@
 class Playlist {
-    constructor() {
-        this.videos = [];
+    constructor(videos) {
+        this.videos = videos;
     }
 
     static merge(...playlists) {
