@@ -1,0 +1,65 @@
+#SETTINGS_USER_CONTAINER {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#SETTINGS_USER_PAGE {
+	width: 90%;
+	height: 100%;
+	background-color: #333333;
+}
+
+.SettingContainer {
+	margin-bottom: 0.5rem;
+}
+
+.SettingActive {
+	
+}
+
+.SettingTitle {
+	background-color: #444444;
+	border-top: 0.2rem solid #111111;
+	border-bottom: 0.2rem solid #111111;
+	padding: 0.2rem;
+	color: #cccccc;
+	cursor: pointer;
+	font-size: 1.5rem;
+	font-weight: bold;
+	font-family: Verdana;
+	user-select: none;
+}
+
+.SettingActive > .SettingTitle{
+	background-color: #555555;
+}
+
+.SettingTitle:hover {
+	color: #ffffff;
+}
+
+.SettingHiddenContainer {
+	display: none;
+}
+
+.SettingActive > .SettingHiddenContainer {
+	display: block;
+}
+
+.SettingOption {
+	
+}
+
+.SettingName {
+	padding: 0.1rem;
+	color: #dddddd;
+	font-size: 1rem;
+	font-family: Verdana
+}
+
+.SettingValue {
+	
+}
