@@ -8,7 +8,7 @@ class Session {
 	}
 	
 	start(username, password){
-		this.username = username;
+		this._username = username;
 		// TODO
 		this._started = true;
 	}
@@ -23,6 +23,7 @@ class Session {
 	}
 	
 	save(){
+		if(this.isGuest()) return;
 		// TODO
 	}
 	

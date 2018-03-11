@@ -7,7 +7,7 @@ Page.pageReady = function() {
 				`${settingsLocation}fragments/connect/connect.css`,
 				`${settingsLocation}fragments/connect/connect.js`,
 				() => {
-					
+					if (typeof settings_fragmentReady === "function") settings_fragmentReady();
 				});
 		
 	} else {

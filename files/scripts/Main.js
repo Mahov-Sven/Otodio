@@ -62,3 +62,8 @@ function switchTab_Settings(){
 	$("#TAB_SETTINGS").addClass("OptionActive");
 	Page.load("settings");
 }
+
+function guest(){
+	Globals.session.start("guest", "guest");
+	return true;
+}
