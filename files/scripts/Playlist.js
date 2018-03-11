@@ -19,9 +19,9 @@ class Playlist {
 
     next() {
         // if the replay setting is active, then just continue with the current video
-        if (Globals.session.settings.video.replay) {
-            return this.videos[0];
-        }
+        // if (Globals.session.settings.video.replay) {
+        //     return this.videos[0];
+        // }
         
         // need to move the last played video to the end and return the first
         const prevVideo = this.videos.shift();

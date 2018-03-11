@@ -4,6 +4,8 @@ class Session {
 		this._username = undefined;
 		this._password = undefined;
 		this._playlists = [];
+		this._currentPlaylist = new Playlist(["Woorod1gJ_w", "AS4q9yaWJkI", "fzQ6gRAEoy0", "aYNWEdA67fQ", "M7VIDzmrpx4",
+    "-tKVN2mAKRI", "4eBH5zdaLRk", "Nmqr9lADWhM", "qfX6MjpQNfI", "bdcAV-HawpE"]);
 		this._settings = new Settings();
 	}
 	
@@ -37,6 +39,10 @@ class Session {
 	
 	get playlists(){
 		return this._started ? this._playlists : undefined;
+	}
+
+	get currentPlaylist(){
+		return this._started ? this._currentPlaylist : this._currentPlaylist;
 	}
 	
 	get settings(){

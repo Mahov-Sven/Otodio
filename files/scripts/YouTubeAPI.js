@@ -33,14 +33,19 @@ function onYouTubeIframeAPIReady() {
       videoId: '',
   		events: {
         'onReady': onPlayerReady,
+        'onStateChange': onStateChange
       }
 	});
 }
 
 function onPlayerReady(event){
-  let videos = importPlaylist('PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN');
-  event.target.loadPlaylist(["Woorod1gJ_w", "AS4q9yaWJkI", "fzQ6gRAEoy0", "aYNWEdA67fQ", "M7VIDzmrpx4",
-    "-tKVN2mAKRI", "4eBH5zdaLRk", "Nmqr9lADWhM", "qfX6MjpQNfI", "bdcAV-HawpE"]);
+  console.log(Globals.session.currentPlaylist);
+  event.target.loadVideoById(Globals.session.currentPlaylist.videos[0]);
+}
+function onStateChange(event){
+  if(event.data === 0){
+    event.target.loadVideoById(Globals.session.currentPlaylist.next());
+  }
 }
 //TODO login with youtube function(extra)
 
