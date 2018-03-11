@@ -8,7 +8,7 @@ class SearchBar {
     	// begin search
     	const result = [];
         for (const element of list) {
-        	if (element.toString().match(new RegExp(query, "i")).length > 0) {
+        	if (element.toString().match(new RegExp(query, "i"))) {
         		result.push(element);
         	}
         }
