@@ -7,6 +7,8 @@ Page.pageReady = function(){
 	});
 	
 	function shufflePlaylist(){
-		// TODO shuffle current playlist
+		//let currentPlaylist = new Playlist($('#videoPlayer').getPlaylist());
+		//currentPlaylist.shuffle();
+		//$('#videoPlayer').loadPlaylist(currentPlaylist.videos);
 	}
 }

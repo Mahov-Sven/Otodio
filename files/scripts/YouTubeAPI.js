@@ -32,15 +32,22 @@ function onYouTubeIframeAPIReady() {
   		width: '90%',
       videoId: '',
   		events: {
-  		}
+        'onReady': onPlayerReady,
+        'loadVideo': loadVideo
+      }
 	});
 }
 
+function onPlayerReady(event){
+  importPlaylist('PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN');
+  //event.target.loadPlaylist('UEwwMm5UNFFqNFoyVDJwcGE2REhjVDhWZE5IRjFWUmNVTi41NkI0NEY2RDEwNTU3Q0M2');
+  //event.target.nextVideo();
+}
 //TODO login with youtube function(extra)
 
 //Retrieves all videos from a youtube playist
 function importPlaylist(playlistID, updateProgress = function(){console.log('Next Part');}, pageToken=null, currentPlaylist=[]){
-  var requestOptions = {
+  let requestOptions = {
     playlistId: playlistID,
     part: 'snippet',
     maxResults: 50
@@ -48,17 +55,25 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
   if(pageToken){
     requestOptions.pageToken = pageToken;
   }
-  var request = gapi.client.youtube.playlistItems.list(requestOptions);
+  let request = gapi.client.youtube.playlistItems.list(requestOptions);
   request.execute(function(response) {
-    var playlistItems = response.result.items;
+    let playlistItems = response.result.items;
     if (playlistItems) {
       if(response.result.nextPageToken){
+        let videoItems = [];
+        for(let i = 0; i < playlistItems.length; i++){
+          videoItems.push(playlistItems[i].snippet.resourceId.videoId);
+        }
         updateProgress();
-        importPlaylist(playlistID, updateProgress, response.result.nextPageToken, currentPlaylist.concat(playlistItems));
+        importPlaylist(playlistID, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
       }else{
+        let videoItems = [];
+        for(let i = 0; i < playlistItems.length; i++){
+          videoItems.push(playlistItems[i].snippet.resourceId.videoId);
+        }
         updateProgress();
-        console.log(currentPlaylist.concat(playlistItems));
-        session.addPlaylist(currentPlaylist.concat(playlistItems));
+        console.log(currentPlaylist.concat(videoItems));
+        session.addPlaylist(currentPlaylist.concat(videoItems));
       }
     } else {
       console.log("Invalid Playlist Id");
@@ -66,13 +81,6 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
   });
 }
 
-//TODO load playlist function
-function loadVideo(videoId){
-  //Select youtube player from page
-  //Load playlist
-  //Next video
+function loadVideo(event){
+  event.target.nextVideo();
 }
-
-//TODO Next Video
-
-//TODO Retrieve Video Pictures
