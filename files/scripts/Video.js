@@ -1,13 +1,15 @@
-
-
 class Video {
-    constructor(url) {
-        this.url = url;
+    constructor(id) {
+    	this.id = id;
         this.title = '';
         this.length = 0; // as seconds
     }
 
     load() {
-        // TODO wire YouTubeAPI here
+        return loadVideo(id);
+    }
+
+    toString() {
+    	return this.title;
     }
 }
