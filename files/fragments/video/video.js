@@ -1,7 +1,6 @@
 Page.pageReady = function(){
 	onYouTubeIframeAPIReady();
 	let shuffleToggled = false;
-	let oldPlaylist = Globals.session.currentPlaylist;
 	//TODO next Video
 	//TODO previous video
 	Page.addTool("TOOL_SHUFFLE_PLAYLIST", "Shuffle Playlist", {

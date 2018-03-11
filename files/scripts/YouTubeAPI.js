@@ -10,8 +10,6 @@ function authenticateAPI() {
 
 function handleClientLoad(){
   gapi.load('client', authenticateAPI);
-
-  console.log('GAPI LOADED');
 }
 
 
@@ -39,7 +37,6 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event){
-  console.log(Globals.session.currentPlaylist);
   event.target.loadVideoById(Globals.session.currentPlaylist.videos[0]);
 }
 function onStateChange(event){
@@ -77,7 +74,7 @@ function importPlaylist(playlistID, updateProgress = function(){console.log('Nex
         }
         updateProgress();
         console.log(currentPlaylist.concat(videoItems));
-        return currentPlaylist.concat(videoItems);
+        Globals.session.currentPlaylist = currentPlaylist.concat(videoItems);
       }
     } else {
       console.log("Invalid Playlist Id");
