@@ -8,7 +8,7 @@ class Playlist {
          * taking two or more playlists, merge them into one new playlist
          */
         if (playlists.length < 2) {
-            console.error('Attempted to merge one or fewer playlists. Cancelling...');
+            console.log('Attempted to merge one or fewer playlists. Cancelling...');
             return undefined;
         }
         const playlist = new Playlist();
@@ -22,16 +22,11 @@ class Playlist {
         if (Globals.session.settings.video.replay) {
             return this.videos[0];
         }
-        /*
-         * move the video to the end of the list,
-         * shuffle if the setting is active
-         */
-        const video = this.videos.shift();
-        this.videos.push(video);
-        if (Globals.session.settings.video.shuffle) {
-            this.shuffle();
-        }
-        return video;
+        
+        // need to move the last played video to the end and return the first
+        const prevVideo = this.videos.shift();
+        this.videos.push(prevVideo);
+        return this.videos[0];
     }
 
     shuffle() {
