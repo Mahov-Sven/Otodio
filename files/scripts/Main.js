@@ -8,6 +8,9 @@ $(document).ready(function () {
 	Globals = {};
 	Globals.session = new Session();
 	Globals.player;
+	
+	guest();
+	
 	// ------------- START OF JQUERY -------------
 
 	$("#TAB_VIDEO").click(() => {
