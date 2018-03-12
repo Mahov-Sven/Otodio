@@ -65,7 +65,7 @@ class YouTubeAPI{
 	          videoItems.push(playlistItems[i].snippet.resourceId.videoId);
 	        }
 	        updateProgress();
-	        importPlaylist(playlistID, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
+	        YouTubeAPI.importPlaylist(playlistID, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
 	      }else{
 	        let videoItems = [];
 	        for(let i = 0; i < playlistItems.length; i++){
@@ -73,7 +73,7 @@ class YouTubeAPI{
 	        }
 	        updateProgress();
 	        console.log(currentPlaylist.concat(videoItems));
-	        Globals.session.currentPlaylist = currentPlaylist.concat(videoItems);
+	        Globals.session.playlists = currentPlaylist.concat(videoItems);
 	      }
 	    } else {
 	      console.log("Invalid Playlist Id");

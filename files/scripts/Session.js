@@ -40,6 +40,10 @@ class Session {
 		return this._started ? this._playlists : undefined;
 	}
 
+	set playlists(playlist){
+		this._started ? this._playlists.push(new Playlist(playlist)) : undefined;
+	}
+
 	get currentPlaylist(){
 		return this._started ? this._currentPlaylist : undefined;
 	}
