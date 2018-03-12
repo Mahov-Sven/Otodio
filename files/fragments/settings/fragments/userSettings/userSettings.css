@@ -111,6 +111,9 @@
 	padding: 0.1rem;
 	max-width: 40rem;
 	font-family: Arial;
+	font-weight: bold;
+	resize: none;
+	overflow: hidden;
 }
 
 .SettingValueToggleButton {

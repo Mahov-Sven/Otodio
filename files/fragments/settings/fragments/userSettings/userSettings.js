@@ -22,8 +22,11 @@ settings_fragmentReady = function(){
 		// TODO
 	});
 	
-	$("#SETTING_IMPORT_YOUTUBE_URL .SettingValueButton").click((event) => {
-		YouTubeAPI.importPlaylist($('.SettingValueTextBox').text());
+	$("#SETTING_IMPORT_YOUTUBE_URL>.SettingValueButton").click((event) => {
+		const textElem = $("#SETTING_IMPORT_YOUTUBE_URL>.SettingValueTextBox");
+		YouTubeAPI.importPlaylist(textElem.val());
+		textElem.val("");
+		textElem.focus();
 	});
 	
 	$("#SETTING_VIDEO_AUTOPLAY").click((event) => {
