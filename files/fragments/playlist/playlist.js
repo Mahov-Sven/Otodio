@@ -15,6 +15,7 @@ Page.pageReady = function(){
 	});
 	
 	function startMergePlaylists(){
+		$("#TOOL_MERGE_PLAYLISTS").toggleClass("Active");
 		// TODO merge playlists
 	}
 }

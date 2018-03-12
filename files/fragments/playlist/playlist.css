@@ -1,9 +1,17 @@
-#TOOL_MERGE_PLAYLISTS {
+#TOOL_MERGE_PLAYLISTS:not(.Active) {
 	background-image: url("files/res/img/Merge.png");
 }
 
-#TOOL_MERGE_PLAYLISTS:hover {
+#TOOL_MERGE_PLAYLISTS.Active {
+	background-image: url("files/res/img/Merge_Active.png");
+}
+
+#TOOL_MERGE_PLAYLISTS:not(.Active):hover {
 	background-image: url("files/res/img/Merge_Hover.png");
+}
+
+#TOOL_MERGE_PLAYLISTS.Active:hover {
+	background-image: url("files/res/img/Merge_Hover_Active.png");
 }
 
 #PLAYLIST_CONTAINER{
