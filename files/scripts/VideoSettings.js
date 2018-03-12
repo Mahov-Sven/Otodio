@@ -1,7 +1,8 @@
 class VideoSettings{
 	constructor(){
-		this.locked = false;
-		this.shuffle = false;
-		this.replay = false;
+		this.autoplay = true;
+		this.repeat = true;
+		this.shuffle = true;
+		this.lock = true;
 	}
 }

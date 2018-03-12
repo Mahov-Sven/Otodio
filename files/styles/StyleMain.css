@@ -236,6 +236,10 @@ html {
 	height: 100%;
 }
 
+[contentEditable=true]:empty:not(:focus):before{
+    content: attr(background-text);
+}
+
 * {
 	margin: 0;
 	padding: 0;
