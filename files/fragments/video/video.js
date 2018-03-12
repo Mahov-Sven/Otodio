@@ -1,5 +1,5 @@
 Page.pageReady = function(){
-	onYouTubeIframeAPIReady();
+	YouTubeAPI.onYouTubeIframeAPIReady();
 	let shuffleToggled = false;
 	//TODO next Video
 	//TODO previous video
