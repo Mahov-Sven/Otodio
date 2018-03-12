@@ -20,40 +20,38 @@
 	height: 100%;	
 	width: 100%;
 	justify-content: center;
-}
-
-#PLAYLIST_CONTAINER:not(.MergeStarted)>.playlist{
-	border: solid;
-	border-color: black;
-}
-
-#PLAYLIST_CONTAINER.MergeStarted>.playlist{
-	border: solid;
-	border-color: #cccccc ;
-}
-
-#PLAYLIST_CONTAINER.MergeStarted>.playlist:hover{
-	border: solid;
-	border-color: #ffffff ;
-}
-
-#PLAYLIST_CONTAINER.MergeStarted>.playlist.Active{
-	border: solid;
-	border-color: #3e84f4;
-}
-
-#PLAYLIST_CONTAINER.MergeStarted>.playlist.Active:hover{
-	border: solid;
-	border-color: #6ea3f7;
+	overflow-y: auto;
 }
 
 .playlist{
-	width: 30rem;
-	height: 30rem;
-	margin: 1rem 1rem 0rem 0rem;
+	width: 15rem;
+	height: 15rem;
+	margin: 1.25rem;
 	flex-shrink: 0;
-	background-size: auto 30rem;
+	background-size: auto 20rem;
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
+	border-radius: 0.5rem;
+	border: 0.25rem solid #111111;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist{
+	margin: 1rem;
+	border: 0.5rem solid #cccccc;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist:hover{
+	margin: 1rem;
+	border: 0.5rem solid #ffffff;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist.Active{
+	margin: 1rem;
+	border: 0.5rem solid #3e84f4;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist.Active:hover{
+	margin: 1rem;
+	border: 0.5rem solid #6ea3f7;
 }
