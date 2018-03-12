@@ -17,5 +17,9 @@
 #PLAYLIST_CONTAINER{
 	display: flex;
 	flex-wrap: wrap;
-	
+}
+
+.thumbnail{
+	width: 20%;
+	margin: 1%;
 }
