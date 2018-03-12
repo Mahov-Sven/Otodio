@@ -2,7 +2,7 @@ Page.pageReady = function(){
 	listPlaylists();
 	function listPlaylists(){
 		//TODO load playlist icons and list them
-		for(playlists in session.playlists){
+		for(playlists in Globals.session.playlists){
 			console.log(playlists);
 		}
 		//TODO play selected playlist
