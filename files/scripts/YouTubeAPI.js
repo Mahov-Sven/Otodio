@@ -42,7 +42,8 @@ class YouTubeAPI{
 	
 	static onStateChange(event){
 		if(event.data === 0){
-			event.target.loadVideoById(Globals.session.currentPlaylist.next().Id);
+      console.log("NEXT VIDEO");
+			event.target.loadVideoById(Globals.session.currentPlaylist.next().id);
 		}
 	}
 
