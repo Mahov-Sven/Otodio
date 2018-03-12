@@ -12,6 +12,15 @@
 	background-color: #333333;
 }
 
+.SettingsPageTitle {
+	padding: 0.2rem;
+	color: #cccccc;
+	font-size: 2rem;
+	font-weight: bold;
+	font-family: Verdana;
+	text-align: center;
+}
+
 .SettingContainer {
 	margin-bottom: 0.5rem;
 }
@@ -33,7 +42,7 @@
 	user-select: none;
 }
 
-.SettingActive > .SettingTitle{
+.SettingActive>.SettingTitle {
 	background-color: #555555;
 }
 
@@ -45,21 +54,96 @@
 	display: none;
 }
 
-.SettingActive > .SettingHiddenContainer {
+.SettingActive>.SettingHiddenContainer {
 	display: block;
 }
 
 .SettingOption {
-	
+	padding: 0.2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .SettingName {
 	padding: 0.1rem;
 	color: #dddddd;
 	font-size: 1rem;
-	font-family: Verdana
+	font-family: Verdana;
+	flex-shrink: 0;
+}
+
+.SettingSeparator {
+	flex-basis: 1rem;
 }
 
 .SettingValue {
 	
+}
+
+.SettingValueButton {
+	background-color: #3e84f4;
+	color: #000000;
+	font-family: Verdana;
+	font-weight: bold;
+	border-radius: 0.3rem;
+	padding: 0.2rem;
+	margin: 0 0.3rem; cursor : pointer;
+	user-select: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.SettingValueButton:hover {
+	background-color: #6ea3f7;
+}
+
+.SettingValueButton:active {
+	background-color: #9fc1f9;
+}
+
+.SettingValueTextBox {
+	background-color: #dddddd;
+	border: 0.2rem solid #111111;
+	flex-grow: 1;
+	border-radius: 0.3rem;
+	padding: 0.1rem;
+	max-width: 20rem;
+	font-family: Arial;
+}
+
+.SettingValueToggleButton {
+	position: relative;
+	background-color: #666666;
+	flex-shrink: 0;
+	width: 2.5rem;
+	height: 1.5rem;
+	border-radius: 1rem;
+	cursor: pointer;
+}
+
+.Active .SettingValueToggleButton {
+	background-color: #3e84f4;
+}
+
+.SettingValueToggleButton:before {
+	position: absolute;
+	content: "";
+	background-color: #dddddd;
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.5rem;
+	top: 0.25rem;
+	right: 0.25rem;
+}
+
+.Active .SettingValueToggleButton:before {
+	left: 0.25rem;
+}
+
+.Disabled {
+	opacity: 0.2;
+	user-select: none;
+	cursor: default;
+	pointer-events: none;
 }

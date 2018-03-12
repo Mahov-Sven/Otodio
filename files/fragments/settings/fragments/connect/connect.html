@@ -1,29 +1,52 @@
 <div id="SETTINGS_USER_CONTAINER">
 	<div id="SETTINGS_USER_PAGE">
+		<div class="SettingsPageTitle">Settings</div>
 		<div class="SettingContainer">
 			<div class="SettingTitle">Import Playlist</div>
 			<div class="SettingHiddenContainer">
-				<div class="SettingOption">
+				<div class="SettingOption Disabled" id="SETTING_IMPORT_YOUTUBE">
 					<div class="SettingName">Youtube</div>
-					<div class="SettingValue"></div>
+					<div class="SettingSeparator"></div>
+					<div class="SettingValue SettingValueButton">Import</div>
 				</div>
 				
-				<div class="SettingOption">
+				<div class="SettingOption" id="SETTING_IMPORT_YOUTUBE_URL">
 					<div class="SettingName">Youtube by URL</div>
-					<div class="SettingValue"></div>
+					<div class="SettingSeparator"></div>
+					<div class="SettingValue SettingValueTextBox" contenteditable="true" background-text="Paste Video URL"></div>
+					<div class="SettingValue SettingValueButton">Import</div>
 				</div>
 			</div>
 		</div>
 		<div class="SettingContainer">
-			<div class="SettingTitle">Video Settings</div>
+			<div class="SettingTitle">Video Player Settings</div>
 			<div class="SettingHiddenContainer">
-				<div class="SettingOption">
-					<div class="SettingName"></div>
-					<div class="SettingValue"></div>
+				<div class="SettingOption" id="SETTING_VIDEO_AUTOPLAY">
+					<div class="SettingName">Autoplay Next</div>
+					<div class="SettingSeparator"></div>
+					<div class="SettingValue SettingValueToggleButton"></div>
+				</div>
+				
+				<div class="SettingOption" id="SETTING_VIDEO_REPEAT">
+					<div class="SettingName">Repeat Playlist</div>
+					<div class="SettingSeparator"></div>
+					<div class="SettingValue SettingValueToggleButton"></div>
+				</div>
+				
+				<div class="SettingOption" id="SETTING_VIDEO_SHUFFLE">
+					<div class="SettingName">Shuffle Playlist</div>
+					<div class="SettingSeparator"></div>
+					<div class="SettingValue SettingValueToggleButton"></div>
+				</div>
+				
+				<div class="SettingOption" id="SETTING_VIDEO_LOCK">
+					<div class="SettingName">Lock Video Player Settings</div>
+					<div class="SettingSeparator"></div>
+					<div class="SettingValue SettingValueToggleButton"></div>
 				</div>
 			</div>
 		</div>
-		<div class="SettingContainer">
+		<div class="SettingContainer Disabled">
 			<div class="SettingTitle">Playlist Settings</div>
 			<div class="SettingHiddenContainer">
 				<div class="SettingOption">
