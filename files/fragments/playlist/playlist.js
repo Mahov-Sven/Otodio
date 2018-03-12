@@ -9,7 +9,7 @@ Page.pageReady = function(){
 	}
 
 	Page.addTool("TOOL_MERGE_PLAYLISTS", "Merge Playlists", {
-		"click": startMergePlaylists(),
+		"click": startMergePlaylists,
 	});
 	
 	function startMergePlaylists(){

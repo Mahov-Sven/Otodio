@@ -1,6 +1,7 @@
 class Playlist {
     constructor(videos) {
         this.videos = videos;
+        this.oldVideos = videos;
     }
 
     static merge(...playlists) {
@@ -39,6 +40,13 @@ class Playlist {
             this.videos[i] = this.videos[j];
             this.videos[j] = temp;
         }
+    }
+
+    unShuffle() {
+        let indexOfPlaying = this.oldVideos.find(this.videos[0]);
+        let second = this.oldVideos.splice(indexOfPlaying);
+        this.videos = second.push(this.oldVideos);
+        this.oldVideos = this.videos;
     }
 
     add(video) {

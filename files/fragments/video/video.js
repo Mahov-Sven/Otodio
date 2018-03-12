@@ -10,7 +10,7 @@ Page.pageReady = function(){
 	function shufflePlaylist(){
 		if(shuffleToggled){
 			shuffleToggled = true;
-			//TODO Unshuffle selected playlist
+			Globals.session.currentPlaylist.unShuffle();
 		}else{
 			shuffleToggled = false;
 			Globals.session.currentPlaylist.shuffle();
