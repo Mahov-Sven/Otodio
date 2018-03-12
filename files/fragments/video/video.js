@@ -8,11 +8,11 @@ Page.pageReady = function(){
 	});
 	
 	function shufflePlaylist(){
-		if(shuffleToggled){
-			shuffleToggled = false;
+		if(Globals.session.settings.video.shuffle){
+			Globals.session.settings.video.shuffle = false;
 			Globals.session.currentPlaylist.unShuffle();
 		}else{
-			shuffleToggled = true;
+			Globals.session.settings.video.shuffle = true;
 			Globals.session.currentPlaylist.shuffle();
 		}
 	}
