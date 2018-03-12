@@ -123,7 +123,7 @@
 	cursor: pointer;
 }
 
-.Active .SettingValueToggleButton {
+.Active>.SettingValueToggleButton {
 	background-color: #3e84f4;
 }
 
@@ -138,7 +138,7 @@
 	right: 0.25rem;
 }
 
-.Active .SettingValueToggleButton:before {
+.Active>.SettingValueToggleButton:before {
 	left: 0.25rem;
 }
 
