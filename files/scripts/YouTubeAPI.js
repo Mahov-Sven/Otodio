@@ -34,7 +34,10 @@ class YouTubeAPI{
 	}
 	
 	static onPlayerReady(event){
-	  event.target.loadVideoById(Globals.session.currentPlaylist.videos[0]);
+    if(Globals.session.currentPlaylist == undefined){
+      Globals.session.currentPlaylist = Globals.session.playlists[0];
+    }
+    event.target.loadVideoById(Globals.session.currentPlaylist.videos[0]);
 	}
 	
 	static onStateChange(event){
@@ -42,6 +45,17 @@ class YouTubeAPI{
 			event.target.loadVideoById(Globals.session.currentPlaylist.next());
 		}
 	}
+
+  static importThumbnail(videoId, afterCompletion = function(){}){
+    let requestOptions = {
+      id: videoId,
+      part: 'snippet',
+    };
+    let request = gapi.client.youtube.videos.list(requestOptions);
+    request.execute(function(response) {
+      afterCompletion(response.result.items[0].snippet.thumbnails.maxres.url);
+    });
+  }
 	
 	/**
 	 * Retrives all videos from a YouTube playlist

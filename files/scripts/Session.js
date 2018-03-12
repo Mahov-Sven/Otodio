@@ -49,7 +49,7 @@ class Session {
 	}
 
 	set currentPlaylist(playlist){
-		this._currentPlaylist = this._started ? Playlist : undefined;
+		this._currentPlaylist = this._started ? playlist : undefined;
 	}
 	
 	get settings(){
