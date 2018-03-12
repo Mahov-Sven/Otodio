@@ -53,7 +53,7 @@ class YouTubeAPI{
     };
     let request = gapi.client.youtube.videos.list(requestOptions);
     request.execute(function(response) {
-      afterCompletion(response.result.items[0].snippet.thumbnails.maxres.url);
+      afterCompletion(response.result.items[0].snippet.thumbnails.default.url);
     });
   }
 	

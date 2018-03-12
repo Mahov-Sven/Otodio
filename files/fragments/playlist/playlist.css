@@ -23,6 +23,7 @@
 }
 
 .thumbnail{
-	width: 20%;
-	margin: 2em 0em 2em 2em;
+	width: 5rem;
+	height: 5rem;
+	margin: 2rem;
 }
