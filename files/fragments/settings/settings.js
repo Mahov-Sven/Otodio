@@ -3,9 +3,9 @@ Page.pageReady = function() {
 	if (Globals.session.started) {
 		console.log("Settings: started");
 		Loader.loadFragment("SETTINGS_CONTENT", 
-				`${settingsLocation}fragments/connect/connect.html`,
-				`${settingsLocation}fragments/connect/connect.css`,
-				`${settingsLocation}fragments/connect/connect.js`,
+				`${settingsLocation}fragments/userSettings/userSettings.html`,
+				`${settingsLocation}fragments/userSettings/userSettings.css`,
+				`${settingsLocation}fragments/userSettings/userSettings.js`,
 				() => {
 					if (typeof settings_fragmentReady === "function") settings_fragmentReady();
 				});
