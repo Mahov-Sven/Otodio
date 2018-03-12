@@ -1,8 +1,7 @@
 class Video {
-    constructor(id) {
+    constructor(id, title) {
     	this.id = id;
-        this.title = '';
-        this.length = 0; // as seconds
+        this.title = title;
     }
 
     load() {

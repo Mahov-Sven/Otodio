@@ -37,12 +37,12 @@ class YouTubeAPI{
     if(Globals.session.currentPlaylist == undefined){
       Globals.session.currentPlaylist = Globals.session.playlists[0];
     }
-    event.target.loadVideoById(Globals.session.currentPlaylist.videos[0]);
+    event.target.loadVideoById(Globals.session.currentPlaylist.videos[0].id);
 	}
 	
 	static onStateChange(event){
 		if(event.data === 0){
-			event.target.loadVideoById(Globals.session.currentPlaylist.next());
+			event.target.loadVideoById(Globals.session.currentPlaylist.next().id);
 		}
 	}
 
@@ -87,18 +87,19 @@ class YouTubeAPI{
 	      if(response.result.nextPageToken){
 	        let videoItems = [];
 	        for(let i = 0; i < playlistItems.length; i++){
-	          videoItems.push(playlistItems[i].snippet.resourceId.videoId);
+	          videoItems.push(new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title));
 	        }
 	        updateProgress();
 	        YouTubeAPI.importPlaylist(playlistID, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
 	      }else{
 	        let videoItems = [];
 	        for(let i = 0; i < playlistItems.length; i++){
-	          videoItems.push(playlistItems[i].snippet.resourceId.videoId);
+	          videoItems.push(new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title));
 	        }
 	        updateProgress();
           let finalPlaylist = currentPlaylist.concat(videoItems);
-	        YouTubeAPI.importThumbnail(finalPlaylist[0], (thumbnail)=>{
+          console.log(finalPlaylist);
+	        YouTubeAPI.importThumbnail(finalPlaylist[0].id, (thumbnail)=>{
             Globals.session.playlists.push(new Playlist("Temp Name", finalPlaylist, thumbnail));
           }); 
 	      }
