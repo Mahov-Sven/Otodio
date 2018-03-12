@@ -5,3 +5,9 @@
 #TOOL_MERGE_PLAYLISTS:hover {
 	background-image: url("files/res/img/Merge_Hover.png");
 }
+
+#PLAYLIST_CONTAINER{
+	display: flex;
+	flex-wrap: wrap;
+	
+}

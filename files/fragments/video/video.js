@@ -9,7 +9,6 @@ Page.pageReady = function(){
 	Page.addTool("TOOL_REPEAT_PLAYLIST", "Repeat Playlist", {
 		"click": repeatPlaylist,
 	});
-	
 	Page.addTool("TOOL_SHUFFLE_PLAYLIST", "Shuffle Playlist", {
 		"click": shufflePlaylist,
 	});

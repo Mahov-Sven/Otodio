@@ -23,7 +23,7 @@ settings_fragmentReady = function(){
 	});
 	
 	$("#SETTING_IMPORT_YOUTUBE_URL").click((event) => {
-		// TODO
+		YouTubeAPI.importPlaylist($('.SettingValueTextBox').text());
 	});
 	
 	$("#SETTING_VIDEO_AUTOPLAY").click((event) => {
