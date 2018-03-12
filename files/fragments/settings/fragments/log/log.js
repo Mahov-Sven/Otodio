@@ -9,5 +9,8 @@ settings_fragmentReady = function(){
 	
 	$("#SETTINGS_LOGIN_GUEST").click(()=>{
 		$("#LOGIN_GUEST").trigger("click");
+		// TODO temporary login fix
+		Globals.session.start("guest", "guest");
+		Page.reload();
 	});
 }
