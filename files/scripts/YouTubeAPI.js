@@ -53,7 +53,17 @@ class YouTubeAPI{
     };
     let request = gapi.client.youtube.videos.list(requestOptions);
     request.execute(function(response) {
-      afterCompletion(response.result.items[0].snippet.thumbnails.default.url);
+      if(response.result.items[0].snippet.thumbnails.maxres != undefined){
+        afterCompletion(response.result.items[0].snippet.thumbnails.maxres.url);
+      }else if(response.result.items[0].snippet.thumbnails.standard != undefined){
+        afterCompletion(response.result.items[0].snippet.thumbnails.standard.url);
+      }else if(response.result.items[0].snippet.thumbnails.high != undefined){
+        afterCompletion(response.result.items[0].snippet.thumbnails.high.url);
+      }else if(response.result.items[0].snippet.thumbnails.medium != undefined){
+        afterCompletion(response.result.items[0].snippet.thumbnails.medium.url);
+      }else{
+        afterCompletion(response.result.items[0].snippet.thumbnails.default.url);
+      }
     });
   }
 	
