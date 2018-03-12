@@ -9,10 +9,10 @@ Page.pageReady = function(){
 	
 	function shufflePlaylist(){
 		if(shuffleToggled){
-			shuffleToggled = true;
+			shuffleToggled = false;
 			Globals.session.currentPlaylist.unShuffle();
 		}else{
-			shuffleToggled = false;
+			shuffleToggled = true;
 			Globals.session.currentPlaylist.shuffle();
 		}
 	}
