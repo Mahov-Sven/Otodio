@@ -87,8 +87,10 @@ class YouTubeAPI{
 	          videoItems.push(playlistItems[i].snippet.resourceId.videoId);
 	        }
 	        updateProgress();
-	        console.log(currentPlaylist.concat(videoItems));
-	        Globals.session.playlists = currentPlaylist.concat(videoItems);
+          let finalPlaylist = currentPlaylist.concat(videoItems);
+	        YouTubeAPI.importThumbnail(finalPlaylist[0], (thumbnail)=>{
+            Globals.session.playlists = new Playlist("Temp Name", finalPlaylist, thumbnail);
+          }); 
 	      }
 	    } else {
 	      console.log("Invalid Playlist Id");

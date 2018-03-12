@@ -3,9 +3,7 @@ Page.pageReady = function(){
 	function listPlaylists(){
 		//TODO load playlist icons and list them
 		for(let i = 0; i < Globals.session.playlists.length; i++){
-			YouTubeAPI.importThumbnail(Globals.session.playlists[i].oldVideos[0], (thumbnail) => {
-				$('#PLAYLIST_CONTAINER').append(`<img class='thumbnail' src='${thumbnail}'></img>`);
-			});
+			$('#PLAYLIST_CONTAINER').append(`<img class='thumbnail' src='${Globals.session.playlists[i].thumbnail}'></img>`);
 		}
 		//TODO play selected playlist
 	}

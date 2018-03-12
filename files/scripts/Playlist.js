@@ -1,5 +1,7 @@
 class Playlist {
-    constructor(videos) {
+    constructor(name, videos, thumbnail) {
+        this.name = name;
+        this.thumbnail = thumbnail;
         this.videos = videos;
         this.oldVideos = videos;
     }
