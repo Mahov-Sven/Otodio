@@ -55,6 +55,12 @@ class Page {
 		elem.append(tooltipElem);
 		$(`#${Page.pageToolsID}`).append(elem);
 	}
+	
+	static addToolDivider(){
+		const elem = $("<div>");
+		elem.addClass("PageToolDivider");
+		$(`#${Page.pageToolsID}`).append(elem);
+	}
 }
 
 /* Page Static Variables */

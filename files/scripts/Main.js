@@ -7,6 +7,7 @@ $(document).ready(function () {
 	
 	Globals = {};
 	Globals.session = new Session();
+	
 	Globals.player;
 	
 	guest();
@@ -32,9 +33,9 @@ $(document).ready(function () {
 });
 
 function switchTab(newTab){
-	$("#TAB_VIDEO").removeClass("OptionActive");
-	$("#TAB_PLAYLIST").removeClass("OptionActive");
-	$("#TAB_SETTINGS").removeClass("OptionActive");
+	$("#TAB_VIDEO").removeClass("Active");
+	$("#TAB_PLAYLIST").removeClass("Active");
+	$("#TAB_SETTINGS").removeClass("Active");
 	
 	switch(newTab){
 	case "video":
@@ -52,17 +53,17 @@ function switchTab(newTab){
 }
 
 function switchTab_Video(){
-	$("#TAB_VIDEO").addClass("OptionActive");
+	$("#TAB_VIDEO").addClass("Active");
 	Page.load("video");
 }
 
 function switchTab_Playlist(){
-	$("#TAB_PLAYLIST").addClass("OptionActive");
+	$("#TAB_PLAYLIST").addClass("Active");
 	Page.load("playlist");
 }
 
 function switchTab_Settings(){
-	$("#TAB_SETTINGS").addClass("OptionActive");
+	$("#TAB_SETTINGS").addClass("Active");
 	Page.load("settings");
 }
 

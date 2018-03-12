@@ -1,9 +1,65 @@
-#TOOL_SHUFFLE_PLAYLIST{
+#TOOL_AUTOPLAY_PLAYLIST:not(.Active){
+	background-image: url("files/res/img/Autoplay.png");
+}
+
+#TOOL_AUTOPLAY_PLAYLIST.Active{
+	background-image: url("files/res/img/Autoplay_Active.png");
+}
+
+#TOOL_AUTOPLAY_PLAYLIST:not(.Active):hover{
+	background-image: url("files/res/img/Autoplay_Hover.png");
+}
+
+#TOOL_AUTOPLAY_PLAYLIST.Active:hover{
+	background-image: url("files/res/img/Autoplay_Hover_Active.png");
+}
+
+#TOOL_REPEAT_PLAYLIST:not(.Active){
+	background-image: url("files/res/img/Repeat.png");
+}
+
+#TOOL_REPEAT_PLAYLIST.Active{
+	background-image: url("files/res/img/Repeat_Active.png");
+}
+
+#TOOL_REPEAT_PLAYLIST:not(.Active):hover{
+	background-image: url("files/res/img/Repeat_Hover.png");
+}
+
+#TOOL_REPEAT_PLAYLIST.Active:hover{
+	background-image: url("files/res/img/Repeat_Hover_Active.png");
+}
+
+#TOOL_SHUFFLE_PLAYLIST:not(.Active){
 	background-image: url("files/res/img/Shuffle.png");
 }
 
-#TOOL_SHUFFLE_PLAYLIST:hover{
+#TOOL_SHUFFLE_PLAYLIST.Active{
+	background-image: url("files/res/img/Shuffle_Active.png");
+}
+
+#TOOL_SHUFFLE_PLAYLIST:not(.Active):hover{
 	background-image: url("files/res/img/Shuffle_Hover.png");
+}
+
+#TOOL_SHUFFLE_PLAYLIST.Active:hover{
+	background-image: url("files/res/img/Shuffle_Hover_Active.png");
+}
+
+#TOOL_LOCK_PLAYLIST:not(.Active){
+	background-image: url("files/res/img/Lock.png");
+}
+
+#TOOL_LOCK_PLAYLIST.Active{
+	background-image: url("files/res/img/Lock_Active.png");
+}
+
+#TOOL_LOCK_PLAYLIST:not(.Active):hover{
+	background-image: url("files/res/img/Lock_Hover.png");
+}
+
+#TOOL_LOCK_PLAYLIST.Active:hover{
+	background-image: url("files/res/img/Lock_Hover_Active.png");
 }
 
 #playlistContainer {
