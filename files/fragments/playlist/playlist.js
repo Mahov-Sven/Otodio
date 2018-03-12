@@ -5,6 +5,7 @@ Page.pageReady = function(){
 		for(let i = 0; i < Globals.session.playlists.length; i++){
 			const elem = $("<div>");
 			elem.addClass("thumbnail");
+			elem.attr("id", Globals.session.playlists[i].id);
 			elem.css("background-image", `url("${Globals.session.playlists[i].thumbnail}")`);
 			//$('#PLAYLIST_CONTAINER').append(`<img class='thumbnail' src='${Globals.session.playlists[i].thumbnail}'></img>`);
 			$("#PLAYLIST_CONTAINER").append(elem);

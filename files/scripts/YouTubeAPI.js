@@ -42,7 +42,7 @@ class YouTubeAPI{
 	
 	static onStateChange(event){
 		if(event.data === 0){
-			event.target.loadVideoById(Globals.session.currentPlaylist.next().id);
+			event.target.loadVideoById(Globals.session.currentPlaylist.next().Id);
 		}
 	}
 
@@ -70,10 +70,10 @@ class YouTubeAPI{
 	/**
 	 * Retrives all videos from a YouTube playlist
 	 */
-	static importPlaylist(playlistID, updateProgress = function(){console.log('Next Part');}, pageToken=null, currentPlaylist=[]){
+	static importPlaylist(playlistId, updateProgress = function(){console.log('Next Part');}, pageToken=null, currentPlaylist=[]){
 		
 		let requestOptions = {
-	    playlistId: playlistID,
+	    playlistId: playlistId,
 	    part: 'snippet',
 	    maxResults: 50
 	  };
@@ -90,7 +90,7 @@ class YouTubeAPI{
 	          videoItems.push(new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title));
 	        }
 	        updateProgress();
-	        YouTubeAPI.importPlaylist(playlistID, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
+	        YouTubeAPI.importPlaylist(playlistId, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
 	      }else{
 	        let videoItems = [];
 	        for(let i = 0; i < playlistItems.length; i++){
@@ -100,7 +100,7 @@ class YouTubeAPI{
           let finalPlaylist = currentPlaylist.concat(videoItems);
           console.log(finalPlaylist);
 	        YouTubeAPI.importThumbnail(finalPlaylist[0].id, (thumbnail)=>{
-            Globals.session.playlists.push(new Playlist("Temp Name", finalPlaylist, thumbnail));
+            Globals.session.playlists.push(new Playlist("Temp Name",playlistId, finalPlaylist, thumbnail));
           }); 
 	      }
 	    } else {
