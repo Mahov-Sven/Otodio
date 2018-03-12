@@ -73,7 +73,6 @@ class YouTubeAPI{
 	  let request = gapi.client.youtube.playlistItems.list(requestOptions);
 	  request.execute((response) => {
 	    let playlistItems = response.result.items;
-      console.log(playlistItems);
 	    if (playlistItems) {
 	      if(response.result.nextPageToken){
 	        let videoItems = [];
