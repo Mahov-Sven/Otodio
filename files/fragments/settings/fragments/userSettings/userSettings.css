@@ -8,6 +8,7 @@
 
 #SETTINGS_USER_PAGE {
 	width: 100%;
+	max-width: 60rem;
 	height: 100%;
 	background-color: #333333;
 }
@@ -108,7 +109,7 @@
 	flex-grow: 1;
 	border-radius: 0.3rem;
 	padding: 0.1rem;
-	max-width: 20rem;
+	max-width: 40rem;
 	font-family: Arial;
 }
 
