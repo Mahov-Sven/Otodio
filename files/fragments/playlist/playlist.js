@@ -3,19 +3,20 @@ Page.pageReady = function(){
 	function listPlaylists(){
 		for(let i = 0; i < Globals.session.playlists.length; i++){
 			const elem = $("<div>");
-			elem.addClass("thumbnail");
+			elem.addClass("playlist");
 			elem.attr("id", Globals.session.playlists[i].id);
 			elem.css("background-image", `url("${Globals.session.playlists[i].thumbnail}")`);
 			elem.click((event)=>{
 				for(let i = 0; i < Globals.session.playlists.length; i++){
 					if($("#TOOL_MERGE_PLAYLISTS").hasClass("Active")){
-						$(event.target).toggleClass("Selected");
+						$(event.target).toggleClass("Active");
 					}else{
 						Globals.session.currentPlaylist = Globals.session.playlists[i].id == event.target.id ? Globals.session.playlists[i] : Globals.session.currentPlaylist;
 					}
 				}
 			});
 			$("#PLAYLIST_CONTAINER").append(elem);
+
 		}
 	}
 
@@ -25,7 +26,7 @@ Page.pageReady = function(){
 	
 	function startMergePlaylists(){
 		$("#TOOL_MERGE_PLAYLISTS").toggleClass("Active");
-		$(".thumbnail").toggleClass("Active");
-		$(".thumbnail").removeClass("Selected");
+		$("#PLAYLIST_CONTAINER").toggleClass("MergeStarted");
+		$(".playlist").removeClass("Active");
 	}
 }

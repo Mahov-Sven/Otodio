@@ -22,7 +22,32 @@
 	justify-content: center;
 }
 
-.thumbnail{
+#PLAYLIST_CONTAINER:not(.MergeStarted)>.playlist{
+	border: solid;
+	border-color: black;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist{
+	border: solid;
+	border-color: #cccccc ;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist:hover{
+	border: solid;
+	border-color: #ffffff ;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist.Active{
+	border: solid;
+	border-color: #3e84f4;
+}
+
+#PLAYLIST_CONTAINER.MergeStarted>.playlist.Active:hover{
+	border: solid;
+	border-color: #6ea3f7;
+}
+
+.playlist{
 	width: 30rem;
 	height: 30rem;
 	margin: 1rem 1rem 0rem 0rem;
@@ -32,19 +57,3 @@
 	background-position: center;
 	cursor: pointer;
 }
-
-.thumbnail:not(.Active){
-	border: solid;
-	border-color: black;
-}
-
-.thumbnail.Active{
-	border: solid;
-	border-color: white;
-}
-
-.thumbnail.Selected{
-	border: solid;
-	border-color: blue;
-}
-
