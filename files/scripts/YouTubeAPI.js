@@ -61,7 +61,8 @@ class YouTubeAPI{
 	 * Retrives all videos from a YouTube playlist
 	 */
 	static importPlaylist(playlistID, updateProgress = function(){console.log('Next Part');}, pageToken=null, currentPlaylist=[]){
-	  let requestOptions = {
+		
+		let requestOptions = {
 	    playlistId: playlistID,
 	    part: 'snippet',
 	    maxResults: 50
@@ -70,7 +71,7 @@ class YouTubeAPI{
 	    requestOptions.pageToken = pageToken;
 	  }
 	  let request = gapi.client.youtube.playlistItems.list(requestOptions);
-	  request.execute(function(response) {
+	  request.execute((response) => {
 	    let playlistItems = response.result.items;
 	    if (playlistItems) {
 	      if(response.result.nextPageToken){
