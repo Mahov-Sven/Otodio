@@ -28,9 +28,23 @@
 	margin: 1rem 1rem 0rem 0rem;
 	flex-shrink: 0;
 	background-size: auto 30rem;
-	border: solid;
-	border-color: black;
 	background-repeat: no-repeat;
 	background-position: center;
 	cursor: pointer;
 }
+
+.thumbnail:not(.Active){
+	border: solid;
+	border-color: black;
+}
+
+.thumbnail.Active{
+	border: solid;
+	border-color: white;
+}
+
+.thumbnail.Selected{
+	border: solid;
+	border-color: blue;
+}
+

@@ -98,7 +98,6 @@ class YouTubeAPI{
 	        }
 	        updateProgress();
           let finalPlaylist = currentPlaylist.concat(videoItems);
-          console.log(finalPlaylist);
 	        YouTubeAPI.importThumbnail(finalPlaylist[0].id, (thumbnail)=>{
             Globals.session.playlists.push(new Playlist("Temp Name",playlistId, finalPlaylist, thumbnail));
           }); 
