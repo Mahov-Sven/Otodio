@@ -1,16 +1,18 @@
 Page.pageReady = function(){
 	listPlaylists();
 	function listPlaylists(){
-		//TODO load playlist icons and list them
 		for(let i = 0; i < Globals.session.playlists.length; i++){
 			const elem = $("<div>");
 			elem.addClass("thumbnail");
 			elem.attr("id", Globals.session.playlists[i].id);
 			elem.css("background-image", `url("${Globals.session.playlists[i].thumbnail}")`);
-			//$('#PLAYLIST_CONTAINER').append(`<img class='thumbnail' src='${Globals.session.playlists[i].thumbnail}'></img>`);
+			elem.click((event)=>{
+				for(let i = 0; i < Globals.session.playlists.length; i++){
+					Globals.session.currentPlaylist = Globals.session.playlists[i].id == event.target.id ? Globals.session.playlists[i] : Globals.session.currentPlaylist;
+				}
+			});
 			$("#PLAYLIST_CONTAINER").append(elem);
 		}
-		//TODO play selected playlist
 	}
 
 	Page.addTool("TOOL_MERGE_PLAYLISTS", "Merge Playlists", {
