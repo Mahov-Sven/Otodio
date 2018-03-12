@@ -17,8 +17,9 @@
 #PLAYLIST_CONTAINER{
 	display: flex;
 	flex-wrap: wrap;
+	height: 100%;	
+	width: 100%;
 	justify-content: center;
-	overflow-y: scroll;
 }
 
 .thumbnail{
