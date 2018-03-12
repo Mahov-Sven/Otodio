@@ -75,7 +75,15 @@ class YouTubeAPI {
 			console.log('Next Part');
 		}, pageToken = null, currentPlaylist = []) {
 		
-		
+		const urlRegex = /^(https:\/\/)?www\.youtube\.com\/playlist\?(([a-zA-Z0-9-_]+=[a-zA-Z0-9-_]+&)?)*list=([a-zA-Z0-9-_]+)(&([a-zA-Z0-9-_]+=[a-zA-Z0-9-_]+)?)*$/;
+		const idRegex = /^[a-zA-Z0-9-_]+$/;
+		if(!urlRegex.test(playlistId)){
+			if(!idRegex.test(playlistId)){
+				throw new Error("Bad YouTube Playlist URL Given");
+			}
+		}else{
+			playlistId = playlistId.replace(urlRegex, "$4");
+		}
 
 		let requestOptions = {
 			playlistId : playlistId,
