@@ -2,6 +2,8 @@ Page.pageReady = function(){
 	
 	// ----------- INITIALIZATION --------------
 	
+	$("#PAGE_SEARCH").show();
+	
 	Page.addTool("TOOL_AUTOPLAY_PLAYLIST", "Autoplay the Next Video", {
 		"click": autoplayPlaylist,
 	});

@@ -20,8 +20,7 @@ Z-Indices
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	z-index
-	1;
+	z-index: 1;
 }
 
 #LOGO {
@@ -265,12 +264,89 @@ Z-Indices
 }
 
 #PAGE_SEARCH {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+#PAGE_SEARCH_TITLE {
 	background-color: #333333;
+	flex-shrink: 0;
+	text-align: center;
+	font-size: 1.75rem;
+	color: #cccccc;
+	font-family: Verdana;
+	font-weight: bold;
+	cursor: pointer;
+	user-select: none;
+}
+
+#PAGE_SEARCH:not(.Active) #PAGE_SEARCH_TITLE{
+	border-top: 0.2rem solid #111111;
+}
+
+#PAGE_SEARCH.Active #PAGE_SEARCH_TITLE{
+	border-bottom: 0.2rem solid #111111;
+}
+
+#PAGE_SEARCH_CONTENT {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+#PAGE_SEARCH_BAR_CONTAINER {
+	padding: 1rem;
+	border-bottom: 0.2rem solid #111111;
+	background-color: #333333;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+#PAGE_SEARCH_BAR {
+	float: left;
+	background-color: #dddddd;
+	border: 0.2rem solid #111111;
+	flex-grow: 1;
+	border-radius: 0.3rem;
+	padding: 0.1rem;
+	max-width: 40rem;
+	font-family: Arial;
+	flex-grow: 1;
+}
+
+#PAGE_SEARCH_BAR_BUTTON {
+	float: right;
+	background-color: #3e84f4;
+	color: #000000;
+	font-family: Verdana;
+	font-weight: bold;
+	border-radius: 0.3rem;
+	padding: 0.2rem;
+	margin: 0 0.3rem; cursor : pointer;
+	user-select: none;
+	font-weight: bold;
+	cursor: pointer;
 	flex-shrink: 0;
 }
 
-.Fade {
-	opacity: 0;
+#PAGE_SEARCH_BAR_BUTTON:hover {
+	background-color: #6ea3f7;
+}
+
+#PAGE_SEARCH_BAR_BUTTON:active {
+	background-color: #9fc1f9;
+}
+
+#PAGE_SEARCH_RESULTS {
+	background-color: #222222;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
 }
 
 html {

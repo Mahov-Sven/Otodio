@@ -6,6 +6,11 @@ class Page {
 	static load(title) {
 		Page.pageReady = undefined;
 		Page.clearTools();
+		$("#PAGE_SEARCH").hide();
+		$("#PAGE_SEARCH_CONTENT").hide();
+		$("#PAGE_TOOLS").show();
+		$("#PAGE_CONTENT").show();
+		
 		document.getElementById(Page.pageID).innerHTML = "";
 
 		const loc = "files/fragments/" + title + '/' + title;		

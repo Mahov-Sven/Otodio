@@ -2,7 +2,7 @@ $(document).ready(function () {
 	// ----------------- EVENT HANDLERS GO IN HERE -----------------
 	// ------------- SO THEY DON'T TRIGGER BEFORE LOAD -------------
 
-	// ------------- INITIALIZATION STUFF -------------
+	// ------------- INITIALIZATION -------------
 	// ------------- GLOBAL VARS -------------
 	
 	Globals = {};
@@ -24,6 +24,16 @@ $(document).ready(function () {
 	
 	$("#TAB_SETTINGS").click(() => {
 		switchTab("settings");
+	});
+	
+	$("PAGE_SEARCH").hide();
+	$("PAGE_SEARCH_CONTENT").hide();
+	
+	$("#PAGE_SEARCH_TITLE").click(() => {
+		$("#PAGE_TOOLS").toggle();
+		$("#PAGE_CONTENT").toggle();
+		$("#PAGE_SEARCH_CONTENT").toggle();
+		$("#PAGE_SEARCH").toggleClass("Active");
 	});
 	
 	// ------------- END OF JQUERY -------------
