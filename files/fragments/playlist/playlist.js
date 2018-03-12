@@ -9,16 +9,12 @@ Page.pageReady = function(){
 			elem.click((event)=>{
 				for(let i = 0; i < Globals.session.playlists.length; i++){
 					if($("#TOOL_MERGE_PLAYLISTS").hasClass("Active")){
-						console.log("aaaaaaaaaaaaaa");
 						$(event.target).toggleClass("Active");
 					}else{
 						Globals.session.currentPlaylist = Globals.session.playlists[i].id == event.target.id ? Globals.session.playlists[i] : Globals.session.currentPlaylist;
 					}
 				}
 			});
-			//if(Globals.session.playlists[i].id == Globals.session.currentPlaylist.id){
-				//elem.toggleClass("CurrentPlaylist");
-			//}
 			$("#PLAYLIST_CONTAINER").append(elem);
 
 		}

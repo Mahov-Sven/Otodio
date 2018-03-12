@@ -57,19 +57,3 @@
 	background-position: center;
 	cursor: pointer;
 }
-
-.playlist.CurrentPlaylist{
-	border: solid;
-	border-color: white;
-}
-/*
-.playlist.Active{
-	border: solid;
-	border-color: #3e84f4;
-}
-
-.playlist.Active:hover{
-	border: solid;
-	border-color: #6ea3f7;
-}*/
-
