@@ -11,7 +11,7 @@ settings_fragmentReady = function(){
 	// ----------- END INITIALIZATION --------------
 	
 	$(".SettingTitle").click((event) => {
-		$(event.target).parent().toggleClass("SettingActive");
+		$(event.target).parent().toggleClass("Active");
 	});
 	
 	$(".SettingValueToggleButton").click((event) => {
