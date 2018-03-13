@@ -1,11 +1,11 @@
 Page.pageReady = function(){
 	listPlaylists();
 	function listPlaylists(){
-		for(let i = 0; i < Globals.session.playlists.length; i++){
+		for(let playlist of Globals.session.playlists){
 			const elem = $("<div>");
 			elem.addClass("playlist");
-			elem.attr("id", Globals.session.playlists[i].id);
-			elem.css("background-image", `url("${Globals.session.playlists[i].thumbnail}")`);
+			elem.attr("id", playlist[0]);
+			elem.css("background-image", `url("${playlist[1].thumbnail}")`);
 			$("#PLAYLIST_CONTAINER").append(elem);
 
 		}
@@ -19,10 +19,7 @@ Page.pageReady = function(){
 		if($("#TOOL_MERGE_PLAYLISTS").hasClass("Active")){
 			$(event.target).toggleClass("Active");
 		}else{
-			for(let i = 0; i < Globals.session.playlists.length; i++){
-				Globals.session.currentPlaylist = Globals.session.playlists[i].id == event.target.id ? Globals.session.playlists[i] : Globals.session.currentPlaylist;
-			}
-			
+			Globals.session.currentPlaylist = Globals.session.playlists.get(event.target.id);
 		}
 	});
 	

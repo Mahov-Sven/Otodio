@@ -3,7 +3,7 @@ class Session {
 		this._started = false;
 		this._username = undefined;
 		this._password = undefined;
-		this._playlists = [];
+		this._playlists = new Map();
 		this._currentPlaylist = undefined;
 		this._settings = new Settings();
 	}
@@ -41,7 +41,7 @@ class Session {
 	}
 
 	set playlists(playlist){
-		this._started ? this._playlists.push(playlist) : undefined;
+		this._started ? this._playlists.set(playlist.id, playlist) : undefined;
 	}
 
 	get currentPlaylist(){
