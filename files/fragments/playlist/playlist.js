@@ -19,7 +19,10 @@ Page.pageReady = function(){
 		if($("#TOOL_MERGE_PLAYLISTS").hasClass("Active")){
 			$(event.target).toggleClass("Active");
 		}else{
-			Globals.session.currentPlaylist = Globals.session.playlists[i].id == event.target.id ? Globals.session.playlists[i] : Globals.session.currentPlaylist;
+			for(let i = 0; i < Globals.session.playlists.length; i++){
+				Globals.session.currentPlaylist = Globals.session.playlists[i].id == event.target.id ? Globals.session.playlists[i] : Globals.session.currentPlaylist;
+			}
+			
 		}
 	});
 	
