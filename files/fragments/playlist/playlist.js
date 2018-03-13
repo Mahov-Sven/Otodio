@@ -34,10 +34,22 @@ Page.pageReady = function(){
 		$("#PLAYLIST_CONTAINER").toggleClass("MergeStarted");
 		if(!$("#TOOL_MERGE_PLAYLISTS.Active").length){
 			console.log(selected);
-			Globals.session.playlists.add();
+			merge(selected);
 			selected.clear();
 		}
 		$(".playlist").removeClass("Active");
 		
 	}
+
+	function merge(toBeMerged) {
+        let merged = [];
+        for(let playlist of toBeMerged){
+        	merged = merged.concat(playlist.oldVideos);
+        }
+        console.log(merged);
+        YouTubeAPI.importThumbnail(merged[0].id, (thumbnail) => {
+			Globals.session.playlists = (new Playlist("Merged Playlist", merged, thumbnail));
+		});
+    }
+
 }

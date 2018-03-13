@@ -110,9 +110,9 @@ class YouTubeAPI {
 						videoItems.push(new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title));
 					}
 					updateProgress();
-					let finalPlaylist = currentPlaylist.concat(videoItems);
-					YouTubeAPI.importThumbnail(finalPlaylist[0].id, (thumbnail) => {
-						Globals.session.playlists = (new Playlist("Temp Name", finalPlaylist, thumbnail));
+					let finalVideoArray = currentPlaylist.concat(videoItems);
+					YouTubeAPI.importThumbnail(finalVideoArray[0].id, (thumbnail) => {
+						Globals.session.playlists = (new Playlist("Temp Name", finalVideoArray, thumbnail));
 					});
 				}
 			} else {

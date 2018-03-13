@@ -6,20 +6,6 @@ class Playlist {
         this.oldVideos = videos;
     }
 
-    static merge(...playlists) {
-        /*
-         * taking two or more playlists, merge them into one new playlist
-         */
-        if (playlists.length < 2) {
-            console.log('Attempted to merge one or fewer playlists. Cancelling...');
-            return undefined;
-        }
-        const playlist = new Playlist();
-        // apply the concat function to each playlist in the passed argument
-        Array.prototype.concat.apply(playlist.videos, playlists);
-        return playlist;
-    }
-
     next() {
         //if the replay setting is active, then just continue with the current video
         if (Globals.session.settings.video.replay) {
