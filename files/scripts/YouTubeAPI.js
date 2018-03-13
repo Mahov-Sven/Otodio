@@ -35,7 +35,7 @@ class YouTubeAPI {
 
 	static onPlayerReady(event) {
 		if (Globals.session.currentPlaylist == undefined) {
-			Globals.session.currentPlaylist = Globals.session.playlists.values().next().value;
+			Globals.session.currentPlaylist = Globals.session.playlists.entries().next().value;
 		}
 		event.target.loadVideoById(Globals.session.currentPlaylist.videos[0].id);
 	}
@@ -112,7 +112,7 @@ class YouTubeAPI {
 					updateProgress();
 					let finalPlaylist = currentPlaylist.concat(videoItems);
 					YouTubeAPI.importThumbnail(finalPlaylist[0].id, (thumbnail) => {
-						Globals.session.playlists = (new Playlist("Temp Name", playlistId, finalPlaylist, thumbnail));
+						Globals.session.playlists = (new Playlist("Temp Name", finalPlaylist, thumbnail));
 					});
 				}
 			} else {
