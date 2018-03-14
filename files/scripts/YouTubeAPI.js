@@ -35,7 +35,7 @@ class YouTubeAPI {
 
 	static onPlayerReady(event) {
 		if (Globals.session.currentPlaylist == undefined) {
-			Globals.session.currentPlaylist = Globals.session.playlists.values().next().value;
+			Globals.session.currentPlaylist = Globals.session.playlists.entries().next().value;
 		}
 		event.target.loadVideoById(Globals.session.currentPlaylist.videos[0].id);
 	}
@@ -54,16 +54,17 @@ class YouTubeAPI {
 		};
 		let request = gapi.client.youtube.videos.list(requestOptions);
 		request.execute(function(response) {
-			if (response.result.items[0].snippet.thumbnails.maxres != undefined) {
-				afterCompletion(response.result.items[0].snippet.thumbnails.maxres.url);
-			} else if (response.result.items[0].snippet.thumbnails.standard != undefined) {
-				afterCompletion(response.result.items[0].snippet.thumbnails.standard.url);
-			} else if (response.result.items[0].snippet.thumbnails.high != undefined) {
-				afterCompletion(response.result.items[0].snippet.thumbnails.high.url);
-			} else if (response.result.items[0].snippet.thumbnails.medium != undefined) {
-				afterCompletion(response.result.items[0].snippet.thumbnails.medium.url);
+			const thumbnails = response.result.items[0].snippet.thumbnails;
+			if (thumbnails.maxres != undefined) {
+				afterCompletion(thumbnails.maxres.url);
+			} else if (thumbnails.standard != undefined) {
+				afterCompletion(thumbnails.standard.url);
+			} else if (thumbnails.high != undefined) {
+				afterCompletion(thumbnails.high.url);
+			} else if (thumbnails.medium != undefined) {
+				afterCompletion(thumbnails.medium.url);
 			} else {
-				afterCompletion(response.result.items[0].snippet.thumbnails.default.url);
+				afterCompletion(thumbnails.default.url);
 			}
 		});
 	}
@@ -110,9 +111,9 @@ class YouTubeAPI {
 						videoItems.push(new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title));
 					}
 					updateProgress();
-					let finalPlaylist = currentPlaylist.concat(videoItems);
-					YouTubeAPI.importThumbnail(finalPlaylist[0].id, (thumbnail) => {
-						Globals.session.playlists = (new Playlist("Temp Name", playlistId, finalPlaylist, thumbnail));
+					let finalVideoArray = currentPlaylist.concat(videoItems);
+					YouTubeAPI.importThumbnail(finalVideoArray[0].id, (thumbnail) => {
+						Globals.session.playlists = (new Playlist("Temp Name", finalVideoArray, thumbnail));
 					});
 				}
 			} else {

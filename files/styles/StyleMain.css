@@ -269,7 +269,7 @@ Z-Indices
 }
 
 #PAGE_SEARCH {
-	flex-grow: 0;
+	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 }
@@ -336,9 +336,34 @@ Z-Indices
 	background-color: #222222;
 	flex-grow: 1;
 	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
 	flex-wrap: wrap;
+	height: 100%;	
+	width: 100%;
+	justify-content: center;
+	overflow-y: auto;
+}
+
+.SearchResult {
+	width: 15rem;
+	height: 15rem;
+	margin: 1.25rem;
+	flex-shrink: 0;
+	background-size: auto 20rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+	border-radius: 0.5rem;
+	border: 0.25rem solid #111111;
+}
+
+.SearchResultTitle{
+	padding: 0.2rem;
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 20pt;
+	text-align: center;
+	color: #6ea3f7;
+	text-shadow: -0.1rem -0.1rem 0.1rem #000000, -0.1rem 0.1rem 0.1rem #000000, 0.1rem -0.1rem 0.1rem #000000, 0.1rem 0.1rem 0.1rem #000000;
 }
 
 body {
