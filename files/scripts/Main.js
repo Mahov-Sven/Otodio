@@ -25,7 +25,17 @@ $(document).ready(function () {
 	$("#TAB_SETTINGS").click(() => {
 		switchTab("settings");
 	});
-	
+
+    $("#LOGIN").click(() => {
+        switchTab("login");
+    });
+
+    $("#LOGOUT").click(() => {
+        signout();
+        $("#LOGIN").style.display = "block";
+        switchTab("login");
+    });
+
 	$("PAGE_SEARCH").hide();
 	$("PAGE_SEARCH_CONTENT").hide();
 	
@@ -57,6 +67,9 @@ function switchTab(newTab){
 	case "settings":
 		switchTab_Settings();
 		break;
+	case "login":
+		switchTab_Login();
+		break;
 	default:
 		console.err(`Unknown tab: ${newTab}`);
 	}
@@ -77,7 +90,18 @@ function switchTab_Settings(){
 	Page.load("settings");
 }
 
+function switchTab_Login(){
+    $("#LOGIN").addClass("Active");
+    Page.load("login");
+}
+
 function guest(){
 	Globals.session.start("guest", "guest");
 	return true;
+}
+
+function signout(){
+    $('#LOGOUT').attr('style', 'display: none');
+    $('#LOGIN').attr('style', 'display: block');
+
 }

@@ -1,0 +1,13 @@
+.LoginPage {
+    position: fixed;
+    width: 340px;
+    height: 280px;
+    top: 50%;
+    left: 50%;
+    margin-top: -140px;
+    margin-left: -170px;
+}
+
+h1 {
+    color: white;
+}
