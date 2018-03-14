@@ -1,4 +1,15 @@
 Page.pageReady = function(){
+	
+	SearchBar.setup(Globals.session.playlists,
+			(event, playlist) => {
+				Globals.session.currentPlaylist = playlist;
+				SearchBar.toggle();
+				},
+			(playlist) => {return playlist.name}, 
+			(playlist) => {return playlist.thumbnail});
+	$("#PAGE_SEARCH").show();
+	
+	
 	let selected = new Set();
 	listPlaylists();
 	function listPlaylists(){
@@ -26,8 +37,6 @@ Page.pageReady = function(){
 	Page.addTool("TOOL_MERGE_PLAYLISTS", "Merge Playlists", {
 		"click": startMergePlaylists,
 	});
-	
-	$(".playlist")
 	
 	function startMergePlaylists(){
 		$("#TOOL_MERGE_PLAYLISTS").toggleClass("Active");

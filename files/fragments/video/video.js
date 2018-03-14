@@ -2,6 +2,12 @@ Page.pageReady = function(){
 	
 	// ----------- INITIALIZATION --------------
 	
+	SearchBar.setup(Globals.session.currentPlaylist.videos,
+			(event, video) => {
+				SearchBar.toggle();
+				},
+			(video) => {return video.name}, 
+			(video) => {return video.thumbnail});
 	$("#PAGE_SEARCH").show();
 	
 	Page.addTool("TOOL_AUTOPLAY_PLAYLIST", "Autoplay the Next Video", {
@@ -32,8 +38,8 @@ Page.pageReady = function(){
 	
 	// ----------- END INITIALIZATION --------------
 	
-	//TODO next Video
-	//TODO previous video
+	// TODO next Video
+	// TODO previous video
 	
 	function autoplayPlaylist(){
 		$("#TOOL_AUTOPLAY_PLAYLIST").toggleClass("Active");
