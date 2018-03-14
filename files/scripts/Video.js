@@ -1,8 +1,8 @@
 class Video {
-    constructor(id, title) {
+    constructor(id, name) {
     	this.id = id;
-        this.title = title;
-        this.thumbnail = "files/res/img/Video_Play_Active.png"
+        this.name = name;
+        this.thumbnail;
     }
 
     load() {
@@ -10,6 +10,6 @@ class Video {
     }
 
     toString() {
-    	return this.title;
+    	return this.name;
     }
 }

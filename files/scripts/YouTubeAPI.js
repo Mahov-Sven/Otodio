@@ -101,17 +101,26 @@ class YouTubeAPI {
 				if (response.result.nextPageToken) {
 					let videoItems = [];
 					for (let i = 0; i < playlistItems.length; i++) {
-						videoItems.push(new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title));
+						let nextVideo = new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title);
+						YouTubeAPI.importThumbnail(nextVideo.id, (thumbnail)=> {
+							nextVideo.thumbnail = thumbnail;
+						});
+						videoItems.push(nextVideo);
 					}
 					updateProgress();
 					YouTubeAPI.importPlaylist(playlistId, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
 				} else {
 					let videoItems = [];
 					for (let i = 0; i < playlistItems.length; i++) {
-						videoItems.push(new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title));
+						let nextVideo = new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title);
+						YouTubeAPI.importThumbnail(nextVideo.id, (thumbnail)=> {
+							nextVideo.thumbnail = thumbnail;
+						});
+						videoItems.push(nextVideo);
 					}
 					updateProgress();
 					let finalVideoArray = currentPlaylist.concat(videoItems);
+					console.log(finalVideoArray);
 					YouTubeAPI.importThumbnail(finalVideoArray[0].id, (thumbnail) => {
 						Globals.session.playlists = (new Playlist("Temp Name", finalVideoArray, thumbnail));
 					});
