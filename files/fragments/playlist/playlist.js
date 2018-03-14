@@ -14,23 +14,7 @@ Page.pageReady = function(){
 	listPlaylists();
 	function listPlaylists(){
 		for(let playlist of Globals.session.playlists){
-			const elem = $("<div>");
-			elem.addClass("playlist");
-			elem.css("background-image", `url("${playlist.thumbnail}")`);
-			elem.click((event)=>{
-				if($("#TOOL_MERGE_PLAYLISTS").hasClass("Active")){
-					$(event.target).toggleClass("Active");
-					if(selected.has(playlist)) {
-            			selected.remove(playlist);
-        			} else {
-            			selected.add(playlist);
-        			}   
-				}else{
-					Globals.session.currentPlaylist = playlist;
-				}
-			});
-			$("#PLAYLIST_CONTAINER").append(elem);
-
+			createPlaylistElement(playlist);
 		}
 	}
 
@@ -38,6 +22,25 @@ Page.pageReady = function(){
 		"click": startMergePlaylists,
 	});
 	
+	function createPlaylistElement(playlist){
+		const elem = $("<div>");
+		elem.addClass("playlist");
+		elem.css("background-image", `url("${playlist.thumbnail}")`);
+		elem.click((event)=>{
+			if($("#TOOL_MERGE_PLAYLISTS").hasClass("Active")){
+				$(event.target).toggleClass("Active");
+				if(selected.has(playlist)) {
+        			selected.remove(playlist);
+    			} else {
+        			selected.add(playlist);
+    			}   
+			}else{
+				Globals.session.currentPlaylist = playlist;
+			}
+		});
+		$("#PLAYLIST_CONTAINER").append(elem);
+	}
+
 	function startMergePlaylists(){
 		$("#TOOL_MERGE_PLAYLISTS").toggleClass("Active");
 		$("#PLAYLIST_CONTAINER").toggleClass("MergeStarted");
@@ -57,7 +60,9 @@ Page.pageReady = function(){
         }
         console.log(merged);
         YouTubeAPI.importThumbnail(merged[0].id, (thumbnail) => {
-			Globals.session.playlists = (new Playlist("Merged Playlist", merged, thumbnail));
+        	let playlist = new Playlist("Merged Playlist", merged, thumbnail);
+			Globals.session.playlists = playlist;
+			createPlaylistElement(playlist);
 		});
     }
 
