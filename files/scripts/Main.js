@@ -31,7 +31,7 @@ $(document).ready(function () {
     });
 
     $("#LOGOUT").click(() => {
-        signout();
+        signOut();
         $("#LOGIN").style.display = "block";
         switchTab("login");
     });
@@ -100,8 +100,12 @@ function guest(){
 	return true;
 }
 
-function signout(){
+function signOut(){
     $('#LOGOUT').attr('style', 'display: none');
     $('#LOGIN').attr('style', 'display: block');
-
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        console.log('User signed out.');
+    });
+    switchTab("video");
 }
