@@ -9,6 +9,8 @@ Page.pageReady = function(){
 			(playlist) => {return playlist.thumbnail});
 	$("#PAGE_SEARCH").show();
 	
+	$("#MERGE_CONFIRM_CONTAINER").hide();
+	
 	
 	let selected = new Set();
 	listPlaylists();
@@ -44,14 +46,21 @@ Page.pageReady = function(){
 	function startMergePlaylists(){
 		$("#TOOL_MERGE_PLAYLISTS").toggleClass("Active");
 		$("#PLAYLIST_CONTAINER").toggleClass("MergeStarted");
-		if(!$("#TOOL_MERGE_PLAYLISTS.Active").length){
-			console.log(selected);
-			merge(selected);
-			selected.clear();
-		}
 		$(".playlist").removeClass("Active");
-		
+		$("#MERGE_CONFIRM_CONTAINER").toggle();
 	}
+	
+	$("#MERGE_CONFIRM").click(() => {
+		startMergePlaylists();
+		console.log(selected);
+		merge(selected);
+		selected.clear();
+	});
+	
+	$("#MERGE_CANCEL").click(() => {
+		startMergePlaylists();
+		selected.clear();
+	});
 
 	function merge(toBeMerged) {
         let merged = [];

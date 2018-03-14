@@ -14,6 +14,13 @@
 	background-image: url("files/res/img/Merge_Hover_Active.png");
 }
 
+#PLAYLIST_CONTENT {
+	display: flex;
+	height: 100%;	
+	width: 100%;
+	flex-direction: column;
+}
+
 #PLAYLIST_CONTAINER{
 	display: flex;
 	flex-wrap: wrap;
@@ -21,6 +28,7 @@
 	width: 100%;
 	justify-content: center;
 	overflow-y: auto;
+	flex-grow: 1;
 }
 
 .playlist{
@@ -54,4 +62,35 @@
 #PLAYLIST_CONTAINER.MergeStarted>.playlist.Active:hover{
 	margin: 1rem;
 	border: 0.5rem solid #6ea3f7;
+}
+
+#MERGE_CONFIRM_CONTAINER {
+	background-color: #333333;
+	border-top: 0.2rem solid #111111;
+	flex-shrink: 0;
+	flex-grow: 0;
+	color: #dddddd;
+    display: flex;
+    flex-direction: row;
+    font-size: 2rem;
+    justify-content: center;
+    font-family: Verdana;
+    font-weight: bold;
+    padding: 0.2rem;
+}
+
+#MERGE_CONFIRM {
+	background-color: green;
+	width: 2rem;
+	height: 2rem;
+	display: inline-block;
+	margin: 0.2rem;
+}
+
+#MERGE_CANCEL {
+	background-color: red;
+	width: 2rem;
+	height: 2rem;
+	display: inline-block;
+	margin: 0.2rem;
 }
