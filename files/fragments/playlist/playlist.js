@@ -64,6 +64,9 @@ Page.pageReady = function(){
 
 	function merge(toBeMerged) {
         let merged = [];
+        if(toBeMerged.size < 2){
+        	return;
+        }
         for(let playlist of toBeMerged){
         	merged = merged.concat(playlist.oldVideos);
         }

@@ -57,7 +57,7 @@ Page.pageReady = function(){
 		if(settings.video.shuffle){
 			Globals.session.currentPlaylist.shuffle();
 		}else{
-			Globals.session.currentPlaylist.unShuffle();
+			//Globals.session.currentPlaylist.unShuffle();
 		}
 	}
 	
