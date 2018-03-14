@@ -10,13 +10,27 @@ function onSuccess(googleUser) {
         $('#LOGIN').attr('style', 'display: none');
 
         $('#LOGOUT').attr('style', 'display: block');
-        $('#loginBox').attr('style', 'display:none');
+        $('#loginBox').attr('style', 'display: none');
+        $('#signedIn').attr('style', 'display: block');
         $('#userName').innerText = googleUser.getBasicProfile().getName();
         alert("Welcome To Otodio "+ googleUser.getBasicProfile().getName());
-
+        userProfile(googleUser);
+        profile = googleUser.getBasicProfile();
     } else {
         // There was an error.
     }
+
+}
+
+function userProfile(googleUser){
+    let img = document.createElement("img");
+    img.src = googleUser.getBasicProfile().getImageUrl();
+    src = document.getElementById("profilePic");
+    src.appendChild(img);
+    document.getElementById("fullName").innerHTML = 'Full Name : '+ googleUser.getBasicProfile().getName();
+    document.getElementById("givenName").innerHTML = 'Given Name : '+ googleUser.getBasicProfile().getGivenName();
+    document.getElementById("email").innerHTML = 'email: '+ googleUser.getBasicProfile().getEmail();
+
 
 }
 function onFailure(error) {
@@ -33,8 +47,6 @@ function start() {
 }
 
 function renderButton() {
-    // start();
-    console.log('login here');
 
     gapi.signin2.render('my-signin2', {
         'scope': 'profile email',
