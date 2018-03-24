@@ -47,7 +47,40 @@ class YouTubeAPI {
 		}
 	}
 
-	static importThumbnail(videoId, afterCompletion = function() {}) {
+	static async importThumbnail(videoId) {
+		let requestOptions = {
+			id : videoId,
+			part : 'snippet',
+		};
+		let request = gapi.client.youtube.videos.list(requestOptions);
+		let thumbnail;
+		await new Promise(function(resolve, reject) {
+			request.execute(function(response) {
+				if(response.result.items[0]){
+					const thumbnails = response.result.items[0].snippet.thumbnails;
+					if (thumbnails.maxres != undefined) {
+						resolve(thumbnails.maxres.url);
+					} else if (thumbnails.standard != undefined) {
+						resolve(thumbnails.standard.url);
+					} else if (thumbnails.high != undefined) {
+						resolve(thumbnails.high.url);
+					} else if (thumbnails.medium != undefined) {
+						resolve(thumbnails.medium.url);
+					} else {
+						resolve(thumbnails.default.url);
+					}
+				}else{
+					console.log(`Private Video - id:${videoId}`);
+					resolve(undefined);
+				}
+			});
+		}).then((thmb) => thumbnail = thmb);
+
+		return thumbnail;
+	}
+
+	static oldImportThumbnail(videoId, afterCompletion = function() {}) {
+		console.log(videoId);
 		let requestOptions = {
 			id : videoId,
 			part : 'snippet',
@@ -69,13 +102,7 @@ class YouTubeAPI {
 		});
 	}
 
-	/**
-	 * Retrives all videos from a YouTube playlist
-	 */
-	static importPlaylist(playlistId, updateProgress = () => {
-			console.log('Next Part');
-		}, pageToken = null, currentPlaylist = []) {
-		
+	static async importPlaylist(playlistId, updateProgress = () => {console.log("Progress")}){
 		const urlRegex = /^(https:\/\/)?www\.youtube\.com\/playlist\?(([a-zA-Z0-9-_]+=[a-zA-Z0-9-_]+&)?)*list=([a-zA-Z0-9-_]+)(&([a-zA-Z0-9-_]+=[a-zA-Z0-9-_]+)?)*$/;
 		const idRegex = /^[a-zA-Z0-9-_]+$/;
 		if(!urlRegex.test(playlistId)){
@@ -91,44 +118,53 @@ class YouTubeAPI {
 			part : 'snippet',
 			maxResults : 50
 		};
-		if (pageToken) {
-			requestOptions.pageToken = pageToken;
-		}
-		let request = gapi.client.youtube.playlistItems.list(requestOptions);
-		request.execute((response) => {
+
+		let request;
+		let response;
+		let playlistThumbnail;
+		const videos = [];
+		do {
+			request = gapi.client.youtube.playlistItems.list(requestOptions);
+
+			await new Promise(function(resolve, reject) {
+				request.execute(function(ytResponse) {
+					if(!ytResponse.result.items) reject(Error("Invalid Playlist ID"));
+					resolve(ytResponse);
+				});
+			}).then((ytResponse) => response = ytResponse);
+
 			let playlistItems = response.result.items;
-			if (playlistItems) {
-				if (response.result.nextPageToken) {
-					let videoItems = [];
-					for (let i = 0; i < playlistItems.length; i++) {
-						let nextVideo = new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title);
-						YouTubeAPI.importThumbnail(nextVideo.id, (thumbnail)=> {
-							nextVideo.thumbnail = thumbnail;
-						});
-						videoItems.push(nextVideo);
+			let videoItems = [];
+			for (let i = 0; i < playlistItems.length; i++) {
+				let nextVideo = new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title);
+				const thumbnails = playlistItems[i].snippet.thumbnails;
+				if(thumbnails){
+					let thumbnail;
+					if (thumbnails.maxres) {
+						thumbnail = thumbnails.maxres.url;
+					} else if (thumbnails.standard) {
+						thumbnail = thumbnails.standard.url;
+					} else if (thumbnails.high) {
+						thumbnail = thumbnails.high.url;
+					} else if (thumbnails.medium) {
+						thumbnail = thumbnails.medium.url;
+					} else {
+						thumbnail = thumbnails.default.url;
 					}
-					updateProgress();
-					YouTubeAPI.importPlaylist(playlistId, updateProgress, response.result.nextPageToken, currentPlaylist.concat(videoItems));
-				} else {
-					let videoItems = [];
-					for (let i = 0; i < playlistItems.length; i++) {
-						let nextVideo = new Video(playlistItems[i].snippet.resourceId.videoId, playlistItems[i].snippet.title);
-						YouTubeAPI.importThumbnail(nextVideo.id, (thumbnail)=> {
-							nextVideo.thumbnail = thumbnail;
-						});
-						videoItems.push(nextVideo);
-					}
-					updateProgress();
-					let finalVideoArray = currentPlaylist.concat(videoItems);
-					console.log(finalVideoArray);
-					YouTubeAPI.importThumbnail(finalVideoArray[0].id, (thumbnail) => {
-						Globals.session.playlists = (new Playlist("Temp Name", finalVideoArray, thumbnail));
-					});
+					nextVideo.thumbnail = thumbnail;
+					if(!playlistThumbnail) playlistThumbnail = thumbnail;
+				}else{
+					console.log(`Private Video - id:${playlistItems[i].snippet.resourceId.videoId}`);
 				}
-			} else {
-				console.log("Invalid Playlist Id");
+				videos.push(nextVideo);
 			}
-		});
+			updateProgress();
+			requestOptions.pageToken = response.result.nextPageToken;
+
+		} while(response.result.nextPageToken);
+
+		console.log("done");
+		return new Playlist("Name", videos, playlistThumbnail);
 	}
 }
 

@@ -10,7 +10,7 @@ $(document).ready(function () {
 	
 	Globals.player;
 	
-	guest();
+	//guest();
 	
 	// ------------- START OF JQUERY -------------
 
@@ -36,8 +36,11 @@ $(document).ready(function () {
         switchTab("login");
     });
 
-	$("PAGE_SEARCH").hide();
-	$("PAGE_SEARCH_CONTENT").hide();
+	$("#PAGE_SEARCH").hide();
+	$("#PAGE_SEARCH_CONTENT").hide();
+	
+	$("#TAB_VIDEO").parent().hide();
+	$("#TAB_PLAYLIST").parent().hide();
 	
 	$("#PAGE_SEARCH_TITLE").click(() => {
 		$("#PAGE_TOOLS").toggle();

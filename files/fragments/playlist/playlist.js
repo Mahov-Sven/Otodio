@@ -1,17 +1,17 @@
 Page.pageReady = function(){
-	
+
 	SearchBar.setup(Globals.session.playlists,
 			(event, playlist) => {
 				Globals.session.currentPlaylist = playlist;
 				SearchBar.toggle();
 				},
-			(playlist) => {return playlist.name}, 
+			(playlist) => {return playlist.name},
 			(playlist) => {return playlist.thumbnail});
 	$("#PAGE_SEARCH").show();
-	
+
 	$("#MERGE_CONFIRM_CONTAINER").hide();
-	
-	
+
+
 	let selected = new Set();
 	listPlaylists();
 	function listPlaylists(){
@@ -23,7 +23,7 @@ Page.pageReady = function(){
 	Page.addTool("TOOL_MERGE_PLAYLISTS", "Merge Playlists", {
 		"click": startMergePlaylists,
 	});
-	
+
 	function createPlaylistElement(playlist){
 		const elem = $("<div>");
 		elem.addClass("playlist");
@@ -35,7 +35,7 @@ Page.pageReady = function(){
         			selected.remove(playlist);
     			} else {
         			selected.add(playlist);
-    			}   
+    			}
 			}else{
 				Globals.session.currentPlaylist = playlist;
 			}
@@ -49,14 +49,14 @@ Page.pageReady = function(){
 		$(".playlist").removeClass("Active");
 		$("#MERGE_CONFIRM_CONTAINER").toggle();
 	}
-	
+
 	$("#MERGE_CONFIRM").click(() => {
 		startMergePlaylists();
 		console.log(selected);
 		merge(selected);
 		selected.clear();
 	});
-	
+
 	$("#MERGE_CANCEL").click(() => {
 		startMergePlaylists();
 		selected.clear();
@@ -71,7 +71,7 @@ Page.pageReady = function(){
         	merged = merged.concat(playlist.oldVideos);
         }
         console.log(merged);
-        YouTubeAPI.importThumbnail(merged[0].id, (thumbnail) => {
+        YouTubeAPI.oldImportThumbnail(merged[0].id, (thumbnail) => {
         	let playlist = new Playlist("Merged Playlist", merged, thumbnail);
 			Globals.session.playlists = playlist;
 			createPlaylistElement(playlist);
