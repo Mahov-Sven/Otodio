@@ -1,5 +1,5 @@
 class Page {
-	
+
 	/**
 	 * Loads a page as a fragment given the fragment's title
 	 */
@@ -10,30 +10,51 @@ class Page {
 		$("#PAGE_SEARCH_CONTENT").hide();
 		$("#PAGE_TOOLS").show();
 		$("#PAGE_CONTENT").show();
-		
+
 		document.getElementById(Page.pageID).innerHTML = "";
 
-		const loc = "files/fragments/" + title + '/' + title;		
+		const loc = "files/fragments/" + title + '/' + title;
 		Loader.loadFragment(Page.pageID, loc + ".html", loc + ".css", loc + ".js", () => {
 			if (typeof Page.pageReady === "function") Page.pageReady();
 			Page.currentPage = title;
 		});
 	}
-	
+
 	/**
 	 * Reloads the current page. Usefull to rerun JavaScript
 	 */
 	static reload(){
 		Page.load(Page.currentPage);
 	}
-	
+
 	/**
 	 * Removes all tools from the page's toolbar.
 	 */
 	static clearTools() {
 		document.getElementById(Page.pageToolsID).innerHTML = "";
 	}
-	
+
+	static addSeachBar(tooltip){
+		const elem = $("<div>");
+
+		const tooltipContainer = $("<div>");
+		tooltipContainer.addClass("TooltipContainer");
+		const tooltipElem = $("<div>");
+		tooltipElem.addClass("TooltipBase");
+		tooltipElem.addClass("TooltipDown");
+		tooltipElem.text(tooltip);
+		const buttonElem = $("<div>");
+		buttonElem.addClass("PageTool");
+		buttonElem.attr("id", "#SEARCH_BUTTON");
+		tooltipContainer.append(buttonElem);
+		tooltipContainer.append(tooltipElem);
+
+		const searchBar = undefined;
+
+		elem.append(tooltipContainer)
+		$(`#${Page.pageToolsID}`).append(elem);
+	}
+
 	/**
 	 * Adds a tool to the page's toolbar.<br>
 	 * <br>
@@ -51,16 +72,16 @@ class Page {
 		const buttonElem = $("<div>");
 		buttonElem.addClass("PageTool");
 		buttonElem.attr("id", id);
-		
+
 		Object.keys(eventsObj).forEach((key, index) => {
 			buttonElem.on(key, eventsObj[key]);
 		});
-		
+
 		elem.append(buttonElem);
 		elem.append(tooltipElem);
 		$(`#${Page.pageToolsID}`).append(elem);
 	}
-	
+
 	static addToolDivider(){
 		const elem = $("<div>");
 		elem.addClass("PageToolDivider");
@@ -87,5 +108,5 @@ Page.pageID = "PAGE_CONTENT";
 
 /**
  * Keeps track of the current page
- */ 
+ */
 Page.currentPage = undefined;

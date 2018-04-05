@@ -29,7 +29,7 @@
 }
 
 .SettingContainer {
-	
+
 }
 
 .SettingTitle {
@@ -79,7 +79,7 @@
 }
 
 .SettingValue {
-	
+
 }
 
 .SettingValueButton {
@@ -143,11 +143,4 @@
 
 .Active>.SettingValueToggleButton:before {
 	left: 0.25rem;
-}
-
-.Disabled {
-	opacity: 0.2;
-	user-select: none;
-	cursor: default;
-	pointer-events: none;
 }

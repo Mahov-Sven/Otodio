@@ -4,7 +4,8 @@
     "jquery"
   ],
   "loadEagerly": [
-    "files/scripts/*.js"
+    "files/scripts/*.js",
+    "files/fragments/*.js"
   ],
   "dontLoad": [
     "node_modules/**"
