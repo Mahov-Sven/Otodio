@@ -4,24 +4,24 @@ $(document).ready(function () {
 
 	// ------------- INITIALIZATION -------------
 	// ------------- GLOBAL VARS -------------
-
+	
 	Globals = {};
 	Globals.session = new Session();
-
+	
 	Globals.player;
-
-	guest();
-
+	
+	//guest();
+	
 	// ------------- START OF JQUERY -------------
 
 	$("#TAB_VIDEO").click(() => {
 		switchTab("video");
 	});
-
+	
 	$("#TAB_PLAYLIST").click(() => {
 		switchTab("playlist");
 	});
-
+	
 	$("#TAB_SETTINGS").click(() => {
 		switchTab("settings");
 	});
@@ -38,19 +38,19 @@ $(document).ready(function () {
 
 	$("#PAGE_SEARCH").hide();
 	$("#PAGE_SEARCH_CONTENT").hide();
-
+	
 	$("#TAB_VIDEO").parent().hide();
 	$("#TAB_PLAYLIST").parent().hide();
-
+	
 	$("#PAGE_SEARCH_TITLE").click(() => {
 		$("#PAGE_TOOLS").toggle();
 		$("#PAGE_CONTENT").toggle();
 		$("#PAGE_SEARCH_CONTENT").toggle();
 		$("#PAGE_SEARCH").toggleClass("Active");
 	});
-
+	
 	// ------------- END OF JQUERY -------------
-
+	
 	// ------------- START PAGE -------------
 	$("#TAB_SETTINGS").trigger("click");
 });
@@ -59,7 +59,7 @@ function switchTab(newTab){
 	$("#TAB_VIDEO").removeClass("Active");
 	$("#TAB_PLAYLIST").removeClass("Active");
 	$("#TAB_SETTINGS").removeClass("Active");
-
+	
 	switch(newTab){
 	case "video":
 		switchTab_Video();
@@ -98,22 +98,9 @@ function switchTab_Login(){
     Page.load("login");
 }
 
-async function guest(){
+function guest(){
 	Globals.session.start("guest", "guest");
-	const defaultPlaylists = [
-		`https://www.youtube.com/playlist?list=PLuXeE80dw_bLugE4hUCzX-a-yV31JkG-i`,
-		`https://www.youtube.com/playlist?list=PL02nT4Qj4Z2T2ppa6DHcT8VdNHF1VRcUN`,
-	];
-	for(const playlistId of defaultPlaylists){
-		YouTubeAPI.importPlaylist(playlistId).then((playlist) => {
-			Globals.session.addPlaylist(playlist);
-		});
-	}
 	return true;
-}
-
-function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function signOut(){

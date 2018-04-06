@@ -64,7 +64,6 @@ class Session {
 		if(!this.started) return;
 		if(this._playlists.size === 0) $("#TAB_PLAYLIST").parent().fadeIn();
 		this._playlists.add(playlist);
-		Page.reload();
 	}
 
 	get currentPlaylist(){

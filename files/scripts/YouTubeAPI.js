@@ -52,7 +52,6 @@ class YouTubeAPI {
 			id : videoId,
 			part : 'snippet',
 		};
-		while(!gapi.client) await sleep(500);
 		let request = gapi.client.youtube.videos.list(requestOptions);
 		let thumbnail;
 		await new Promise(function(resolve, reject) {
@@ -125,7 +124,6 @@ class YouTubeAPI {
 		let playlistThumbnail;
 		const videos = [];
 		do {
-			while(!gapi.client) await sleep(500);
 			request = gapi.client.youtube.playlistItems.list(requestOptions);
 
 			await new Promise(function(resolve, reject) {

@@ -170,13 +170,13 @@ Z-Indices
 
 .TooltipBase::before {
 	/* Disabled until arrows are fixed
-
+	
 	content: " ";
 	position: absolute;
 	border-width: 0.2rem;
 	border-style: solid;
 	*/
-
+	
 }
 
 .TooltipRight {
@@ -186,13 +186,13 @@ Z-Indices
 
 .TooltipRight::before {
 	/* Disabled until arrows are fixed
-
+	
 	top: 50%;
 	right: 100%;
 	margin-top: -0.2rem;
 	border-color: transparent #666666 transparent transparent;
 	*/
-
+	
 }
 
 .TooltipDown {
@@ -202,13 +202,13 @@ Z-Indices
 
 .TooltipDown::before {
 	/* Disabled until arrows are fixed
-
+	
 	bottom: 100%;
 	left: 50%;
 	margin-left: -0.2rem;
 	border-color: transparent transparent #666666 transparent;
 	*/
-
+	
 }
 
 .TooltipContainer:hover .TooltipBase {
@@ -260,6 +260,56 @@ Z-Indices
 	width: 0.15rem;
 }
 
+#PAGE_CONTENT {
+	background-color: #222222;
+	flex-grow: 1;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+#PAGE_SEARCH {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+#PAGE_SEARCH_TITLE {
+	background-color: #333333;
+	flex-shrink: 0;
+	text-align: center;
+	font-size: 1.75rem;
+	color: #cccccc;
+	font-family: Verdana;
+	font-weight: bold;
+	cursor: pointer;
+	user-select: none;
+}
+
+#PAGE_SEARCH:not(.Active) #PAGE_SEARCH_TITLE{
+	border-top: 0.2rem solid #111111;
+}
+
+#PAGE_SEARCH.Active #PAGE_SEARCH_TITLE{
+	border-bottom: 0.2rem solid #111111;
+}
+
+#PAGE_SEARCH_CONTENT {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+#PAGE_SEARCH_BAR_CONTAINER {
+	padding: 1rem;
+	border-bottom: 0.2rem solid #111111;
+	background-color: #333333;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: row;
+}
+
 #PAGE_SEARCH_BAR {
 	float: center;
 	background-color: #dddddd;
@@ -282,20 +332,12 @@ Z-Indices
 	background-color: #9fc1f9;
 }
 
-#PAGE_CONTENT {
-	background-color: #222222;
-	flex-grow: 1;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-}
-
 #PAGE_SEARCH_RESULTS {
 	background-color: #222222;
 	flex-grow: 1;
 	display: flex;
 	flex-wrap: wrap;
-	height: 100%;
+	height: 100%;	
 	width: 100%;
 	justify-content: center;
 	overflow-y: auto;
@@ -324,13 +366,6 @@ Z-Indices
 	text-shadow: -0.1rem -0.1rem 0.1rem #000000, -0.1rem 0.1rem 0.1rem #000000, 0.1rem -0.1rem 0.1rem #000000, 0.1rem 0.1rem 0.1rem #000000;
 }
 
-.Disabled {
-	opacity: 0.2;
-	user-select: none;
-	cursor: default;
-	pointer-events: none;
-}
-
 body {
 	width: 100%;
 	height: 100%;
@@ -340,6 +375,10 @@ html {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
+}
+
+[contentEditable=true]:empty:not(:focus):before {
+	content: attr(background-text);
 }
 
 * {

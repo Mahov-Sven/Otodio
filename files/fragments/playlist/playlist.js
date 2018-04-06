@@ -7,6 +7,7 @@ Page.pageReady = function(){
 				},
 			(playlist) => {return playlist.name},
 			(playlist) => {return playlist.thumbnail});
+	$("#PAGE_SEARCH").show();
 
 	$("#MERGE_CONFIRM_CONTAINER").hide();
 
@@ -18,8 +19,7 @@ Page.pageReady = function(){
 			createPlaylistElement(playlist);
 		}
 	}
-	Page.addSeachBar("Search for a Playlist");
-	Page.addToolDivider();
+
 	Page.addTool("TOOL_MERGE_PLAYLISTS", "Merge Playlists", {
 		"click": startMergePlaylists,
 	});
