@@ -9,7 +9,7 @@
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script async defer src="https://apis.google.com/js/api.js" 
+<script async defer src="https://apis.google.com/js/api.js"
 		onload="this.onload=function(){};YouTubeAPI.handleClientLoad()"
       	onreadystatechange="if (this.readyState === 'complete') this.onload()">
 </script>
@@ -32,8 +32,8 @@
 		<div id="TOP_BANNER">
 			<img id="LOGO" alt="" src="files/res/img/Logo.png">
 			<div class="FlexDynamic"></div>
-			<div class="FlexStatic LogText" id="LOGOUT" onclick="signOut()" style="display:none">Logout</div>
-			<div class="FlexStatic LogText" id="LOGIN">Login</div>
+			<div class="FlexStatic LogText Disabled" id="LOGOUT" onclick="signOut()" style="display:none">Logout</div>
+			<div class="FlexStatic LogText Disabled" id="LOGIN">Login</div>
 		</div>
 		<div id="INNER_CONTENT">
 			<div id="TABS">
@@ -63,7 +63,7 @@
 							<textarea id="PAGE_SEARCH_BAR" class="SettingValue SettingValueTextBox" rows="1" spellcheck="false" placeholder="Type in your search terms"></textarea>
 						</div>
 						<div id="PAGE_SEARCH_RESULTS">
-							
+
 						</div>
 					</div>
 				</div>

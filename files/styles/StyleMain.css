@@ -170,13 +170,13 @@ Z-Indices
 
 .TooltipBase::before {
 	/* Disabled until arrows are fixed
-	
+
 	content: " ";
 	position: absolute;
 	border-width: 0.2rem;
 	border-style: solid;
 	*/
-	
+
 }
 
 .TooltipRight {
@@ -186,13 +186,13 @@ Z-Indices
 
 .TooltipRight::before {
 	/* Disabled until arrows are fixed
-	
+
 	top: 50%;
 	right: 100%;
 	margin-top: -0.2rem;
 	border-color: transparent #666666 transparent transparent;
 	*/
-	
+
 }
 
 .TooltipDown {
@@ -202,13 +202,13 @@ Z-Indices
 
 .TooltipDown::before {
 	/* Disabled until arrows are fixed
-	
+
 	bottom: 100%;
 	left: 50%;
 	margin-left: -0.2rem;
 	border-color: transparent transparent #666666 transparent;
 	*/
-	
+
 }
 
 .TooltipContainer:hover .TooltipBase {
@@ -337,7 +337,7 @@ Z-Indices
 	flex-grow: 1;
 	display: flex;
 	flex-wrap: wrap;
-	height: 100%;	
+	height: 100%;
 	width: 100%;
 	justify-content: center;
 	overflow-y: auto;
@@ -379,6 +379,13 @@ html {
 
 [contentEditable=true]:empty:not(:focus):before {
 	content: attr(background-text);
+}
+
+.Disabled {
+	opacity: 0.2;
+	user-select: none;
+	cursor: default;
+	pointer-events: none;
 }
 
 * {
